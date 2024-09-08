@@ -23,6 +23,7 @@ namespace winform_app
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             dgvArticulos.DataSource = negocio.listar();
+            
         }
 
     }
