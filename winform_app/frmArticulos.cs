@@ -21,7 +21,9 @@ namespace winform_app
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            dgvArticulos.DataSource = negocio.listar();
         }
+
     }
 }
