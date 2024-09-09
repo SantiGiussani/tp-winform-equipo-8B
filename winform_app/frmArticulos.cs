@@ -25,6 +25,5 @@ namespace winform_app
             dgvArticulos.DataSource = negocio.listar();
             
         }
-
     }
 }

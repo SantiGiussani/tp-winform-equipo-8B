@@ -31,5 +31,20 @@ namespace winform_app
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void SubMnCodigo_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(frmBusquedaCodigo))
+                {
+                    return;
+                }
+            }
+
+            frmBusquedaCodigo ventana = new frmBusquedaCodigo();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }
