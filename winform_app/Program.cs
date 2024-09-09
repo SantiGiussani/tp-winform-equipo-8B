@@ -16,7 +16,7 @@ namespace winform_app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmArticulos());
+            Application.Run(new frmPrincipal());
         }
     }
 }
