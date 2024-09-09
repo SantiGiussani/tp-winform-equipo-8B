@@ -52,6 +52,12 @@
     <Compile Include="frmArticulos.Designer.cs">
       <DependentUpon>frmArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarXnombre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarXnombre.Designer.cs">
+      <DependentUpon>frmBuscarXnombre.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBusquedaCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarXnombre.resx">
+      <DependentUpon>frmBuscarXnombre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBusquedaCodigo.resx">
       <DependentUpon>frmBusquedaCodigo.cs</DependentUpon>

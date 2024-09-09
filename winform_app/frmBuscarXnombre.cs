@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,25 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dominio;
-using negocio;
 
 namespace winform_app
 {
-    public partial class frmBusquedaCodigo : Form
+    public partial class frmBuscarXnombre : Form
     {
-        public frmBusquedaCodigo()
+        public frmBuscarXnombre()
         {
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscarNombre_Click(object sender, EventArgs e)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             try
             {
-                dgvBuscarXcodigo.DataSource = articuloNegocio.listarXcodigo(textBoxCodigo.Text);
+                dgvBuscarXnombre.DataSource = articuloNegocio.listarXnombre((string)txtBoxNombre.Text);
             }
             catch (Exception ex)
             {

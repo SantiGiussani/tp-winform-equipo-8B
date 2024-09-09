@@ -46,5 +46,20 @@ namespace winform_app
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(frmBuscarXnombre))
+                {
+                    return;
+                }
+            }
+
+            frmBuscarXnombre ventana = new frmBuscarXnombre();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }
