@@ -85,42 +85,78 @@ namespace negocio
 
         }
 
-            public List<Articulo> listarXnombre(string nombre)
+       public List<Articulo> listarXnombre(string nombre)
+       {
+           List<Articulo> lista = new List<Articulo>();
+           AccesoDatos datos = new AccesoDatos();
+
+           try
+           {
+               datos.setearConsulta("Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from ARTICULOS where Nombre like '%" + nombre + "%' ");
+               datos.ejecutarLectura();
+
+               while (datos.Lector.Read())
+               {
+                   Articulo aux = new Articulo();
+                   aux.Id = (int)datos.Lector["Id"];
+                   aux.Codigo = (string)datos.Lector["Codigo"];
+                   aux.Nombre = (string)datos.Lector["Nombre"];
+                   aux.Descripcion = (string)datos.Lector["Descripcion"];
+                   ImagenNegocio imagenNegocio = new ImagenNegocio();
+                   aux.ListaImagenes = imagenNegocio.listar(aux.Id);
+
+                   lista.Add(aux);
+               }
+
+               return lista;
+           }
+
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               datos.cerrarConexion();
+           }
+       }
+
+        public List<Articulo> listarXdesc(string desc)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
             {
-                List<Articulo> lista = new List<Articulo>();
-                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from ARTICULOS where Descripcion like '%" + desc + "%' ");
+                datos.ejecutarLectura();
 
-                try
+                while (datos.Lector.Read())
                 {
-                    datos.setearConsulta("Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from ARTICULOS where Nombre like '%" + nombre + "%' ");
-                    datos.ejecutarLectura();
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    ImagenNegocio imagenNegocio = new ImagenNegocio();
+                    aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
-                    while (datos.Lector.Read())
-                    {
-                        Articulo aux = new Articulo();
-                        aux.Id = (int)datos.Lector["Id"];
-                        aux.Codigo = (string)datos.Lector["Codigo"];
-                        aux.Nombre = (string)datos.Lector["Nombre"];
-                        aux.Descripcion = (string)datos.Lector["Descripcion"];
-                        ImagenNegocio imagenNegocio = new ImagenNegocio();
-                        aux.ListaImagenes = imagenNegocio.listar(aux.Id);
-
-                        lista.Add(aux);
-                    }
-
-                    return lista;
+                    lista.Add(aux);
                 }
 
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    datos.cerrarConexion();
-                }
+                return lista;
             }
 
-     }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+    }
 }
  

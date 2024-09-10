@@ -32,32 +32,17 @@ namespace winform_app
             ventana.Show();
         }
 
-        private void SubMnCodigo_Click(object sender, EventArgs e)
+        private void busquedaDeArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)
             {
-                if (item.GetType() == typeof(frmBusquedaCodigo))
+                if (item.GetType() == typeof(frmBuscarArticulo))
                 {
                     return;
                 }
             }
 
-            frmBusquedaCodigo ventana = new frmBusquedaCodigo();
-            ventana.MdiParent = this;
-            ventana.Show();
-        }
-
-        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var item in Application.OpenForms)
-            {
-                if (item.GetType() == typeof(frmBuscarXnombre))
-                {
-                    return;
-                }
-            }
-
-            frmBuscarXnombre ventana = new frmBuscarXnombre();
+            frmBuscarArticulo ventana = new frmBuscarArticulo();
             ventana.MdiParent = this;
             ventana.Show();
         }
