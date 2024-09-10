@@ -40,13 +40,19 @@
             this.btnBuscarXdesc = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblSubtitulo = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.btnBuscarXmarca = new System.Windows.Forms.Button();
+            this.txtBoxMarca = new System.Windows.Forms.TextBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.btnBuscarXcat = new System.Windows.Forms.Button();
+            this.txtBoxCat = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIngresarCodigo
             // 
             this.lblIngresarCodigo.AutoSize = true;
-            this.lblIngresarCodigo.Location = new System.Drawing.Point(25, 112);
+            this.lblIngresarCodigo.Location = new System.Drawing.Point(20, 112);
             this.lblIngresarCodigo.Name = "lblIngresarCodigo";
             this.lblIngresarCodigo.Size = new System.Drawing.Size(86, 13);
             this.lblIngresarCodigo.TabIndex = 0;
@@ -79,13 +85,13 @@
             this.dgvBuscarArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBuscarArticulo.Location = new System.Drawing.Point(384, 43);
             this.dgvBuscarArticulo.Name = "dgvBuscarArticulo";
-            this.dgvBuscarArticulo.Size = new System.Drawing.Size(669, 399);
+            this.dgvBuscarArticulo.Size = new System.Drawing.Size(669, 362);
             this.dgvBuscarArticulo.TabIndex = 3;
             // 
             // lblBuscarXnombre
             // 
             this.lblBuscarXnombre.AutoSize = true;
-            this.lblBuscarXnombre.Location = new System.Drawing.Point(22, 174);
+            this.lblBuscarXnombre.Location = new System.Drawing.Point(20, 174);
             this.lblBuscarXnombre.Name = "lblBuscarXnombre";
             this.lblBuscarXnombre.Size = new System.Drawing.Size(89, 13);
             this.lblBuscarXnombre.TabIndex = 4;
@@ -111,7 +117,7 @@
             // lblBuscarXdesc
             // 
             this.lblBuscarXdesc.AutoSize = true;
-            this.lblBuscarXdesc.Location = new System.Drawing.Point(25, 245);
+            this.lblBuscarXdesc.Location = new System.Drawing.Point(22, 245);
             this.lblBuscarXdesc.Name = "lblBuscarXdesc";
             this.lblBuscarXdesc.Size = new System.Drawing.Size(105, 13);
             this.lblBuscarXdesc.TabIndex = 7;
@@ -119,9 +125,9 @@
             // 
             // txtBoxDesc
             // 
-            this.txtBoxDesc.Location = new System.Drawing.Point(136, 245);
+            this.txtBoxDesc.Location = new System.Drawing.Point(137, 245);
             this.txtBoxDesc.Name = "txtBoxDesc";
-            this.txtBoxDesc.Size = new System.Drawing.Size(179, 20);
+            this.txtBoxDesc.Size = new System.Drawing.Size(178, 20);
             this.txtBoxDesc.TabIndex = 8;
             // 
             // btnBuscarXdesc
@@ -154,11 +160,69 @@
             this.lblSubtitulo.TabIndex = 11;
             this.lblSubtitulo.Text = "Buscar por solo un criterio";
             // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Location = new System.Drawing.Point(25, 301);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(80, 13);
+            this.lblMarca.TabIndex = 12;
+            this.lblMarca.Text = "Ingresar marca:";
+            // 
+            // btnBuscarXmarca
+            // 
+            this.btnBuscarXmarca.Location = new System.Drawing.Point(137, 327);
+            this.btnBuscarXmarca.Name = "btnBuscarXmarca";
+            this.btnBuscarXmarca.Size = new System.Drawing.Size(179, 23);
+            this.btnBuscarXmarca.TabIndex = 13;
+            this.btnBuscarXmarca.Text = "buscar";
+            this.btnBuscarXmarca.UseVisualStyleBackColor = true;
+            this.btnBuscarXmarca.Click += new System.EventHandler(this.btnBuscarXmarca_Click);
+            // 
+            // txtBoxMarca
+            // 
+            this.txtBoxMarca.Location = new System.Drawing.Point(137, 301);
+            this.txtBoxMarca.Name = "txtBoxMarca";
+            this.txtBoxMarca.Size = new System.Drawing.Size(179, 20);
+            this.txtBoxMarca.TabIndex = 14;
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(26, 356);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(95, 13);
+            this.lblCategoria.TabIndex = 15;
+            this.lblCategoria.Text = "Ingresar categoria:";
+            // 
+            // btnBuscarXcat
+            // 
+            this.btnBuscarXcat.Location = new System.Drawing.Point(138, 382);
+            this.btnBuscarXcat.Name = "btnBuscarXcat";
+            this.btnBuscarXcat.Size = new System.Drawing.Size(178, 23);
+            this.btnBuscarXcat.TabIndex = 16;
+            this.btnBuscarXcat.Text = "Buscar";
+            this.btnBuscarXcat.UseVisualStyleBackColor = true;
+            this.btnBuscarXcat.Click += new System.EventHandler(this.btnBuscarXcat_Click);
+            // 
+            // txtBoxCat
+            // 
+            this.txtBoxCat.Location = new System.Drawing.Point(138, 356);
+            this.txtBoxCat.Name = "txtBoxCat";
+            this.txtBoxCat.Size = new System.Drawing.Size(178, 20);
+            this.txtBoxCat.TabIndex = 17;
+            // 
             // frmBuscarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 454);
+            this.ClientSize = new System.Drawing.Size(1065, 428);
+            this.Controls.Add(this.txtBoxCat);
+            this.Controls.Add(this.btnBuscarXcat);
+            this.Controls.Add(this.lblCategoria);
+            this.Controls.Add(this.txtBoxMarca);
+            this.Controls.Add(this.btnBuscarXmarca);
+            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblSubtitulo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnBuscarXdesc);
@@ -195,5 +259,11 @@
         private System.Windows.Forms.Button btnBuscarXdesc;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblSubtitulo;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Button btnBuscarXmarca;
+        private System.Windows.Forms.TextBox txtBoxMarca;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.Button btnBuscarXcat;
+        private System.Windows.Forms.TextBox txtBoxCat;
     }
 }
