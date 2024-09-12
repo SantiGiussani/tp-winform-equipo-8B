@@ -21,7 +21,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id");
+                datos.setearConsulta("Select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.Precio from ARTICULOS A Left Join CATEGORIAS C on A.IdCategoria = C.Id Left Join MARCAS M on A.IdMarca = M.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -31,25 +31,25 @@ namespace negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Clasificacion(); 
+                    aux.Marca_ = new Marca(); 
                     if(!(datos.Lector["Marca"] is DBNull))
                     {
-                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca_.Descripcion = (string)datos.Lector["Marca"];
                     }
                     else
                     {
-                        aux.Marca.descripcion = "";
+                        aux.Marca_.Descripcion = "";
                     }
-                    aux.categoria = new Clasificacion();
+                    aux.Categoria_ = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria_.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
                     {
-                        aux.categoria.descripcion = "";
+                        aux.Categoria_.Descripcion = "";
                     }
-                    aux.precio = (decimal)datos.Lector["precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
@@ -86,25 +86,25 @@ namespace negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Clasificacion();
+                    aux.Marca_ = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
                     {
-                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca_.Descripcion = (string)datos.Lector["Marca"];
                     }
                     else
                     {
-                        aux.Marca.descripcion = "";
+                        aux.Marca_.Descripcion = "";
                     }
-                    aux.categoria = new Clasificacion();
+                    aux.Categoria_ = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria_.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
                     {
-                        aux.categoria.descripcion = "";
+                        aux.Categoria_.Descripcion = "";
                     }
-                    aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
@@ -142,25 +142,25 @@ namespace negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Clasificacion();
+                    aux.Marca_ = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
                     {
-                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca_.Descripcion = (string)datos.Lector["Marca"];
                     }
                     else
                     {
-                        aux.Marca.descripcion = "";
+                        aux.Marca_.Descripcion = "";
                     }
-                    aux.categoria = new Clasificacion();
+                    aux.Categoria_ = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria_.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
                     {
-                        aux.categoria.descripcion = "";
+                        aux.Categoria_.Descripcion = "";
                     }
-                    aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
@@ -197,25 +197,25 @@ namespace negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Clasificacion();
+                    aux.Marca_ = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
                     {
-                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca_.Descripcion = (string)datos.Lector["Marca"];
                     }
                     else
                     {
-                        aux.Marca.descripcion = "";
+                        aux.Marca_.Descripcion = "";
                     }
-                    aux.categoria = new Clasificacion();
+                    aux.Categoria_ = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria_.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
                     {
-                        aux.categoria.descripcion = "";
+                        aux.Categoria_.Descripcion = "";
                     }
-                    aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
@@ -252,25 +252,25 @@ namespace negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Clasificacion();
+                    aux.Marca_ = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
                     {
-                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca_.Descripcion = (string)datos.Lector["Marca"];
                     }
                     else
                     {
-                        aux.Marca.descripcion = "";
+                        aux.Marca_.Descripcion = "";
                     }
-                    aux.categoria = new Clasificacion();
+                    aux.Categoria_ = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria_.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
                     {
-                        aux.categoria.descripcion = "";
+                        aux.Categoria_.Descripcion = "";
                     }
-                    aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
@@ -307,25 +307,25 @@ namespace negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Clasificacion();
+                    aux.Marca_ = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
                     {
-                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca_.Descripcion = (string)datos.Lector["Marca"];
                     }
                     else
                     {
-                        aux.Marca.descripcion = "";
+                        aux.Marca_.Descripcion = "";
                     }
-                    aux.categoria = new Clasificacion();
+                    aux.Categoria_ = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria_.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
                     {
-                        aux.categoria.descripcion = "";
+                        aux.Categoria_.Descripcion = "";
                     }
-                    aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
 
