@@ -21,7 +21,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion Categoria ,Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria ");
+                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -32,9 +32,23 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Clasificacion(); 
-                    aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    if(!(datos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca.descripcion = "";
+                    }
                     aux.categoria = new Clasificacion();
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.categoria.descripcion = "";
+                    }
                     aux.precio = (decimal)datos.Lector["precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
@@ -62,7 +76,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion Categoria, Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria and Codigo like '%" + num + "%'"); 
+                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id where A.Codigo like '%" + num + "%'"); 
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -73,9 +87,23 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Clasificacion();
-                    aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca.descripcion = "";
+                    }
                     aux.categoria = new Clasificacion();
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.categoria.descripcion = "";
+                    }
                     aux.precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
@@ -104,7 +132,7 @@ namespace negocio
 
            try
            {
-               datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion Categoria ,Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria and Nombre like '%" + nombre + "%'");
+               datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id where A.Nombre like '%" + nombre + "%'");
                datos.ejecutarLectura();
 
                while (datos.Lector.Read())
@@ -115,9 +143,23 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Clasificacion();
-                    aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca.descripcion = "";
+                    }
                     aux.categoria = new Clasificacion();
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.categoria.descripcion = "";
+                    }
                     aux.precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
@@ -145,7 +187,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.ID, Codigo, Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion Categoria ,Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria and A.Descripcion like '%" + desc + "%'");
+                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id where A.Descripcion like '%" + desc + "%'");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -156,9 +198,23 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Clasificacion();
-                    aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca.descripcion = "";
+                    }
                     aux.categoria = new Clasificacion();
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.categoria.descripcion = "";
+                    }
                     aux.precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
@@ -186,7 +242,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion Categoria ,Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria and M.Descripcion like '%" + Marca + "%'");
+                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id where M.Descripcion like '%" + Marca + "%'");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -197,9 +253,23 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Clasificacion();
-                    aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca.descripcion = "";
+                    }
                     aux.categoria = new Clasificacion();
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.categoria.descripcion = "";
+                    }
                     aux.precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);
@@ -227,7 +297,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion Categoria ,Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria and C.Descripcion like '%" + cat + "%'");
+                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion marca, C.Descripcion categoria, A.Precio from ARTICULOS A left join CATEGORIAS C on A.IdCategoria = C.Id left join MARCAS M on A.IdMarca = M.Id where C.Descripcion like '%" + cat + "%'");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -238,9 +308,23 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Clasificacion();
-                    aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca.descripcion = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca.descripcion = "";
+                    }
                     aux.categoria = new Clasificacion();
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.categoria.descripcion = "";
+                    }
                     aux.precio = (decimal)datos.Lector["Precio"];
                     ImagenNegocio imagenNegocio = new ImagenNegocio();
                     aux.ListaImagenes = imagenNegocio.listar(aux.Id);

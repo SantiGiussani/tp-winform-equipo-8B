@@ -98,5 +98,32 @@ namespace winform_app
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvBuscarArticulo_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvBuscarArticulo.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvBuscarArticulo.CurrentRow.DataBoundItem;
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                cargarImagen(seleccionado.ListaImagenes[0].Url);
+            }
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
+            }
+        }
     }
 }

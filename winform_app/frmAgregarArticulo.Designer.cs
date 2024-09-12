@@ -200,10 +200,10 @@
             // 
             // pbImagenArt
             // 
-            this.pbImagenArt.Location = new System.Drawing.Point(288, 77);
+            this.pbImagenArt.Location = new System.Drawing.Point(288, 44);
             this.pbImagenArt.Margin = new System.Windows.Forms.Padding(2);
             this.pbImagenArt.Name = "pbImagenArt";
-            this.pbImagenArt.Size = new System.Drawing.Size(232, 218);
+            this.pbImagenArt.Size = new System.Drawing.Size(232, 251);
             this.pbImagenArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenArt.TabIndex = 52;
             this.pbImagenArt.TabStop = false;

@@ -43,6 +43,7 @@
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(753, 333);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbxImagen
@@ -53,6 +54,7 @@
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagen.TabIndex = 1;
             this.pbxImagen.TabStop = false;
+            this.pbxImagen.Click += new System.EventHandler(this.pbxImagen_Click);
             // 
             // frmArticulos
             // 

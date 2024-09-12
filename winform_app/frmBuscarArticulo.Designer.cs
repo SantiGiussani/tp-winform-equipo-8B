@@ -46,7 +46,9 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.btnBuscarXcat = new System.Windows.Forms.Button();
             this.txtBoxCat = new System.Windows.Forms.TextBox();
+            this.pbxImagen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIngresarCodigo
@@ -85,8 +87,9 @@
             this.dgvBuscarArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBuscarArticulo.Location = new System.Drawing.Point(384, 43);
             this.dgvBuscarArticulo.Name = "dgvBuscarArticulo";
-            this.dgvBuscarArticulo.Size = new System.Drawing.Size(669, 362);
+            this.dgvBuscarArticulo.Size = new System.Drawing.Size(720, 362);
             this.dgvBuscarArticulo.TabIndex = 3;
+            this.dgvBuscarArticulo.CurrentCellChanged += new System.EventHandler(this.dgvBuscarArticulo_CurrentCellChanged);
             // 
             // lblBuscarXnombre
             // 
@@ -212,11 +215,23 @@
             this.txtBoxCat.Size = new System.Drawing.Size(178, 20);
             this.txtBoxCat.TabIndex = 17;
             // 
+            // pbxImagen
+            // 
+            this.pbxImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxImagen.Location = new System.Drawing.Point(1110, 43);
+            this.pbxImagen.Name = "pbxImagen";
+            this.pbxImagen.Size = new System.Drawing.Size(200, 200);
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagen.TabIndex = 18;
+            this.pbxImagen.TabStop = false;
+            this.pbxImagen.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // frmBuscarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 428);
+            this.ClientSize = new System.Drawing.Size(1322, 428);
+            this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.txtBoxCat);
             this.Controls.Add(this.btnBuscarXcat);
             this.Controls.Add(this.lblCategoria);
@@ -240,6 +255,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar articulo por codigo";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +281,6 @@
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Button btnBuscarXcat;
         private System.Windows.Forms.TextBox txtBoxCat;
+        private System.Windows.Forms.PictureBox pbxImagen;
     }
 }

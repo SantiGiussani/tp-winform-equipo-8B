@@ -62,5 +62,15 @@ namespace winform_app
                 pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
             }
         }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pbxImagen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
