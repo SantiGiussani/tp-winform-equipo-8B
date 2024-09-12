@@ -46,5 +46,20 @@ namespace winform_app
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(frmAgregarArticulo))
+                {
+                    return;
+                }
+            }
+
+            frmAgregarArticulo ventana = new frmAgregarArticulo();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }
