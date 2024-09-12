@@ -12,14 +12,15 @@ namespace negocio
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
-        public SqlDataReader Lector
-        {
-            get { return lector; }
+        public SqlDataReader Lector { 
+            get { 
+                return lector;
+            }
         }
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS02; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS09; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -50,15 +51,10 @@ namespace negocio
             conexion.Close();
         }
 
-
-
-
         public void setearParametro(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
-
-
 
         public void ejecutarAccion()
         {
@@ -73,10 +69,6 @@ namespace negocio
                 throw ex;
             }
         }
-
-
     }
-
-
 }
 

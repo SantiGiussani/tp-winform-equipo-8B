@@ -14,6 +14,7 @@ namespace winform_app
 {
     public partial class frmArticulos : Form
     {
+        private List<Articulo> listaArticulos;
         public frmArticulos()
         {
             InitializeComponent();
@@ -21,9 +22,45 @@ namespace winform_app
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listar();
+            cargar();
             
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                cargarImagen(seleccionado.ListaImagenes[0].Url);
+            }   
+        }
+
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulos = negocio.listar();
+                dgvArticulos.DataSource = listaArticulos;
+                cargarImagen(listaArticulos[0].ListaImagenes[0].Url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
+            }
         }
     }
 }

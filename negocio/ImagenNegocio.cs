@@ -20,18 +20,23 @@ namespace negocio
                 datos.setearConsulta("Select Id, IdArticulo, ImagenUrl From IMAGENES");
                 datos.ejecutarLectura();
 
+                Imagen aux = new Imagen();
+
                 while (datos.Lector.Read())
                 {
-                    Imagen aux = new Imagen();
-                        
-                    if ((int)datos.Lector["IdArticulo"] == idArticulo && !(datos.Lector["ImagenUrl"] is DBNull)) { 
+                    if ((int)datos.Lector["IdArticulo"] == idArticulo && !(datos.Lector["ImagenUrl"] is DBNull))
+                    {
                         aux.Id = (int)datos.Lector["Id"];
                         aux.Url = (string)datos.Lector["ImagenUrl"];
                         lista.Add(aux);
-                    }
-                    
+                    }            
                 }
-
+                if (lista.Count == 0)
+                {
+                    aux.Id = idArticulo;
+                    aux.Url = "";
+                    lista.Add(aux);
+                }
                 return lista;
             }
             catch (Exception ex)
