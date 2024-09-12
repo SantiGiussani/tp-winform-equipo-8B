@@ -63,14 +63,34 @@ namespace winform_app
             }
         }
 
-        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAnterior_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
+            int maximo = seleccionado.ListaImagenes.Count;
+
+            if (seleccionado.IndiceImagen == 0)
+                seleccionado.IndiceImagen = maximo - 1;
+            else
+                seleccionado.IndiceImagen--;
+
+            string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
+            cargarImagen(imagen);
         }
 
-        private void pbxImagen_Click(object sender, EventArgs e)
+        private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
+            int maximo = seleccionado.ListaImagenes.Count;
+
+            if (seleccionado.IndiceImagen == maximo - 1)
+                seleccionado.IndiceImagen = 0;
+            else
+                seleccionado.IndiceImagen++;
+
+            string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
+            cargarImagen(imagen);
         }
     }
 }

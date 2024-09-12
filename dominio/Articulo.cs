@@ -17,6 +17,11 @@ namespace dominio
         public Clasificacion categoria { get; set; }  
         public decimal precio { get; set; }
         public List<Imagen> ListaImagenes { get; set; } = new List<Imagen>(); //Se inicializa la lista junto con el objeto
+        public int IndiceImagen { get; set; }
 
+        public Articulo()
+        {
+            IndiceImagen = 0;
+        }
     }
 }

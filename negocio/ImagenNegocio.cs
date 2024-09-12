@@ -1,10 +1,14 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Data.SqlClient;
 using dominio;
+using System.Xml.Linq;
+using System.Data.SqlTypes;
+using System.Text.RegularExpressions;
 
 namespace negocio
 {
@@ -20,10 +24,11 @@ namespace negocio
                 datos.setearConsulta("Select Id, IdArticulo, ImagenUrl From IMAGENES");
                 datos.ejecutarLectura();
 
-                Imagen aux = new Imagen();
+                
 
                 while (datos.Lector.Read())
                 {
+                    Imagen aux = new Imagen();
                     if ((int)datos.Lector["IdArticulo"] == idArticulo && !(datos.Lector["ImagenUrl"] is DBNull))
                     {
                         aux.Id = (int)datos.Lector["Id"];
@@ -33,6 +38,7 @@ namespace negocio
                 }
                 if (lista.Count == 0)
                 {
+                    Imagen aux = new Imagen();
                     aux.Id = idArticulo;
                     aux.Url = "";
                     lista.Add(aux);
