@@ -41,6 +41,7 @@
             this.btnAgregarCategoría = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificarCategoría = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEliminarCategoría = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarArticulosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,8 @@
             // administrarArticulosToolStripMenuItem
             // 
             this.administrarArticulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarArticuloToolStripMenuItem});
+            this.agregarArticuloToolStripMenuItem,
+            this.administrarArticulosToolStripMenuItem1});
             this.administrarArticulosToolStripMenuItem.Name = "administrarArticulosToolStripMenuItem";
             this.administrarArticulosToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
             this.administrarArticulosToolStripMenuItem.Text = "Administrar Artículos";
@@ -83,7 +85,7 @@
             // agregarArticuloToolStripMenuItem
             // 
             this.agregarArticuloToolStripMenuItem.Name = "agregarArticuloToolStripMenuItem";
-            this.agregarArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarArticuloToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.agregarArticuloToolStripMenuItem.Text = "Agregar Artículo";
             this.agregarArticuloToolStripMenuItem.Click += new System.EventHandler(this.agregarArticuloToolStripMenuItem_Click);
             // 
@@ -100,20 +102,20 @@
             // btnAgregarMarca
             // 
             this.btnAgregarMarca.Name = "btnAgregarMarca";
-            this.btnAgregarMarca.Size = new System.Drawing.Size(180, 22);
+            this.btnAgregarMarca.Size = new System.Drawing.Size(161, 22);
             this.btnAgregarMarca.Text = "Agregar Marca";
             this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
             // btnModificarMarca
             // 
             this.btnModificarMarca.Name = "btnModificarMarca";
-            this.btnModificarMarca.Size = new System.Drawing.Size(180, 22);
+            this.btnModificarMarca.Size = new System.Drawing.Size(161, 22);
             this.btnModificarMarca.Text = "Modificar Marca";
             // 
             // btnEliminarMarca
             // 
             this.btnEliminarMarca.Name = "btnEliminarMarca";
-            this.btnEliminarMarca.Size = new System.Drawing.Size(180, 22);
+            this.btnEliminarMarca.Size = new System.Drawing.Size(161, 22);
             this.btnEliminarMarca.Text = "Eliminar Marca";
             // 
             // administrarCategoríasToolStripMenuItem
@@ -129,20 +131,27 @@
             // btnAgregarCategoría
             // 
             this.btnAgregarCategoría.Name = "btnAgregarCategoría";
-            this.btnAgregarCategoría.Size = new System.Drawing.Size(180, 22);
+            this.btnAgregarCategoría.Size = new System.Drawing.Size(179, 22);
             this.btnAgregarCategoría.Text = "Agregar Categoría";
             // 
             // btnModificarCategoría
             // 
             this.btnModificarCategoría.Name = "btnModificarCategoría";
-            this.btnModificarCategoría.Size = new System.Drawing.Size(180, 22);
+            this.btnModificarCategoría.Size = new System.Drawing.Size(179, 22);
             this.btnModificarCategoría.Text = "Modificar Categoría";
             // 
             // btnEliminarCategoría
             // 
             this.btnEliminarCategoría.Name = "btnEliminarCategoría";
-            this.btnEliminarCategoría.Size = new System.Drawing.Size(180, 22);
+            this.btnEliminarCategoría.Size = new System.Drawing.Size(179, 22);
             this.btnEliminarCategoría.Text = "Eliminar Categoría";
+            // 
+            // administrarArticulosToolStripMenuItem1
+            // 
+            this.administrarArticulosToolStripMenuItem1.Name = "administrarArticulosToolStripMenuItem1";
+            this.administrarArticulosToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.administrarArticulosToolStripMenuItem1.Text = "Administrar Articulos";
+            this.administrarArticulosToolStripMenuItem1.Click += new System.EventHandler(this.administrarArticulosToolStripMenuItem1_Click);
             // 
             // frmPrincipal
             // 
@@ -186,5 +195,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnAgregarCategoría;
         private System.Windows.Forms.ToolStripMenuItem btnModificarCategoría;
         private System.Windows.Forms.ToolStripMenuItem btnEliminarCategoría;
+        private System.Windows.Forms.ToolStripMenuItem administrarArticulosToolStripMenuItem1;
     }
 }

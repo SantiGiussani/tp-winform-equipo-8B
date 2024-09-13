@@ -1,5 +1,4 @@
-﻿using dominio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dominio;
 
 namespace winform_app
 {
@@ -67,6 +67,21 @@ namespace winform_app
         {
             frmAgregarMarca altaMarca = new frmAgregarMarca();
             altaMarca.ShowDialog();
+        }
+
+        private void administrarArticulosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(frmAdministrarArticulo))
+                {
+                    return;
+                }
+            }
+
+            frmAdministrarArticulo ventana = new frmAdministrarArticulo();
+            ventana.MdiParent = this;
+            ventana.Show();
         }
     }
 }

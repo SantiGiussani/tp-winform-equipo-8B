@@ -16,8 +16,6 @@ namespace winform_app
 {
     public partial class frmAgregarArticulo : Form
     {
-        private Articulo articulo=null;
-        private List<Articulo> articuloList;
         
         public frmAgregarArticulo()
         {
