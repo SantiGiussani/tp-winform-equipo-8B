@@ -17,7 +17,7 @@ namespace winform_app
             InitializeComponent();
         }
 
-        private void MenuLisatado_Click(object sender, EventArgs e)
+        private void MenuListado_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)
             {
@@ -60,6 +60,12 @@ namespace winform_app
             frmAgregarArticulo ventana = new frmAgregarArticulo();
             ventana.MdiParent = this;
             ventana.Show();
+        }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarca altaMarca = new frmAgregarMarca();
+            altaMarca.ShowDialog();
         }
     }
 }
