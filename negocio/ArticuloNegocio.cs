@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using dominio;
 using System.Xml.Linq;
 using System.Data.SqlTypes;
 using System.Text.RegularExpressions;
+using dominio;
 
 namespace negocio
 {
@@ -344,6 +344,40 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+
+
+
+        public void agregar(Articulo art)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria)");
+                datos.setearParametro("@Codigo", art.Codigo);
+                datos.setearParametro("@Nombre", art.Nombre);
+                datos.setearParametro("@Descripcion", art.Descripcion);
+                datos.setearParametro("@Precio", art.Precio);
+                datos.setearParametro("@IdMarca", art.Marca_.Id);
+                datos.setearParametro("@IdCategoria", art.Categoria_.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+
+
+
 
     }
 }

@@ -97,6 +97,7 @@
             this.btAceptar.TabIndex = 48;
             this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
+            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
             // btCancelar
             // 
@@ -232,6 +233,7 @@
             this.Controls.Add(this.lbCodArt);
             this.Name = "frmAgregarArticulo";
             this.Text = "frmAgregarArticulo";
+            this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenArt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

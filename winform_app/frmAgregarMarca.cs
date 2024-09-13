@@ -1,6 +1,4 @@
-﻿using dominio;
-using negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using dominio;
+using negocio;
 
 namespace winform_app
 {
@@ -17,6 +17,7 @@ namespace winform_app
     {
         private List<Marca> listaMarcas;
         private Marca marca = null;
+        
 
         public frmAgregarMarca()
         {

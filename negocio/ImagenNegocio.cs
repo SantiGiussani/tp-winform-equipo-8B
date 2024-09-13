@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using dominio;
 using System.Xml.Linq;
 using System.Data.SqlTypes;
 using System.Text.RegularExpressions;
+using dominio;
 
 namespace negocio
 {
@@ -54,5 +54,30 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+
+
+        public void agregarImagen(Imagen nuevaImagen)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("INSERT INTO [CATALOGO_P3_DB].[dbo].[IMAGENES] ([IdArticulo], [ImagenUrl]) VALUES (@idArticulo, @imagenUrl)");
+                datos.setearParametro("@idArticulo",nuevaImagen.Id);
+                datos.setearParametro("@imagenUrl", nuevaImagen.Url);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }
