@@ -33,6 +33,7 @@
             this.busquedaDeArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarArticulosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarMarcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAgregarMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificarMarca = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,6 @@
             this.btnAgregarCategoría = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificarCategoría = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEliminarCategoría = new System.Windows.Forms.ToolStripMenuItem();
-            this.administrarArticulosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.administrarCategoríasToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(960, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(1242, 24);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -65,6 +65,8 @@
             this.MenuListado.Size = new System.Drawing.Size(123, 20);
             this.MenuListado.Text = "Listado de Articulos";
             this.MenuListado.Click += new System.EventHandler(this.MenuListado_Click);
+           
+           
             // 
             // busquedaDeArticulosToolStripMenuItem
             // 
@@ -88,6 +90,13 @@
             this.agregarArticuloToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.agregarArticuloToolStripMenuItem.Text = "Agregar Artículo";
             this.agregarArticuloToolStripMenuItem.Click += new System.EventHandler(this.agregarArticuloToolStripMenuItem_Click);
+            // 
+            // administrarArticulosToolStripMenuItem1
+            // 
+            this.administrarArticulosToolStripMenuItem1.Name = "administrarArticulosToolStripMenuItem1";
+            this.administrarArticulosToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.administrarArticulosToolStripMenuItem1.Text = "Administrar Articulos";
+            this.administrarArticulosToolStripMenuItem1.Click += new System.EventHandler(this.administrarArticulosToolStripMenuItem1_Click);
             // 
             // administrarMarcasToolStripMenuItem
             // 
@@ -146,23 +155,16 @@
             this.btnEliminarCategoría.Size = new System.Drawing.Size(179, 22);
             this.btnEliminarCategoría.Text = "Eliminar Categoría";
             // 
-            // administrarArticulosToolStripMenuItem1
-            // 
-            this.administrarArticulosToolStripMenuItem1.Name = "administrarArticulosToolStripMenuItem1";
-            this.administrarArticulosToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.administrarArticulosToolStripMenuItem1.Text = "Administrar Articulos";
-            this.administrarArticulosToolStripMenuItem1.Click += new System.EventHandler(this.administrarArticulosToolStripMenuItem1_Click);
-            // 
             // frmPrincipal
             // 
-            this.ClientSize = new System.Drawing.Size(960, 324);
+            this.ClientSize = new System.Drawing.Size(1242, 535);
             this.Controls.Add(this.menuStrip3);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip3;
+            this.MinimumSize = new System.Drawing.Size(1258, 574);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADMINISTRADOR DE ARTICULOS";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
             this.ResumeLayout(false);

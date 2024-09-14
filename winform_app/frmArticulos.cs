@@ -33,6 +33,8 @@ namespace winform_app
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 cargarImagen(seleccionado.ListaImagenes[0].Url);
+                dgvArticulos.Columns["IndiceImagen"].Visible = false;
+                dgvArticulos.Columns["Id"].Visible = false;
             }   
         }
 

@@ -43,7 +43,7 @@ namespace winform_app
                 negocio.agregar(art);
 
                 // obtener id del codigo
-                var nuevoArticulo = negocio.listarXcodigo(art.Codigo).FirstOrDefault();
+                var nuevoArticulo = negocio.listar().FirstOrDefault();
                 if (nuevoArticulo != null)
                 {
                     // Agregar imagen al art

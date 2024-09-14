@@ -24,6 +24,8 @@ namespace winform_app
             {
                 if (item.GetType() == typeof(frmArticulos))
                 {
+                    frmArticulos frmArticulos = (frmArticulos)item;
+                    frmArticulos.Close();
                     return;
                 }
             }
@@ -39,6 +41,8 @@ namespace winform_app
             {
                 if (item.GetType() == typeof(frmBuscarArticulo))
                 {
+                    frmBuscarArticulo frmBuscarArticulo = (frmBuscarArticulo)item;
+                    frmBuscarArticulo.Close();
                     return;
                 }
             }
@@ -54,6 +58,8 @@ namespace winform_app
             {
                 if (item.GetType() == typeof(frmAgregarArticulo))
                 {
+                    frmAgregarArticulo frmAgregarArticulo = ( frmAgregarArticulo)item;
+                    frmAgregarArticulo.Close();
                     return;
                 }
             }
@@ -75,6 +81,8 @@ namespace winform_app
             {
                 if (item.GetType() == typeof(frmAdministrarArticulo))
                 {
+                    frmAdministrarArticulo frmAdministrarArticulo = (frmAdministrarArticulo)item;
+                    frmAdministrarArticulo.Close();
                     return;
                 }
             }

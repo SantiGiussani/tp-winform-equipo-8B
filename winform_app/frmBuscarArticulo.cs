@@ -19,111 +19,51 @@ namespace winform_app
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
-            try
-            {
-                dgvBuscarArticulo.DataSource = articuloNegocio.listarXcodigo(textBoxCodigo.Text);
-                textBoxCodigo.Text = "";
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void btnBuscarXnombre_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
-            try
-            {
-                dgvBuscarArticulo.DataSource = articuloNegocio.listarXnombre((string)txtBoxNombre.Text);
-                txtBoxNombre.Text = "";
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void btnBuscarXdesc_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
-            try
-            {
-                dgvBuscarArticulo.DataSource = articuloNegocio.listarXdesc((string)txtBoxDesc.Text);
-                txtBoxDesc.Text = "";
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void btnBuscarXmarca_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
-            try
-            {
-                dgvBuscarArticulo.DataSource = articuloNegocio.listarXmarca((string)txtBoxMarca.Text);
-                txtBoxMarca.Text = "";
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void btnBuscarXcat_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
-            try
-            {
-                dgvBuscarArticulo.DataSource = articuloNegocio.listarXcat((string)txtBoxCat.Text);
-                txtBoxCat.Text = "";
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvBuscarArticulo_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (dgvBuscarArticulo.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvBuscarArticulo.CurrentRow.DataBoundItem;
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                cargarImagen(seleccionado.ListaImagenes[0].Url);
-            }
-        }
-
         private void cargarImagen(string imagen)
         {
             try
             {
-                pbxImagen.Load(imagen);
+                PbImagen.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
+                PbImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
             }
+        }
+
+        private void txtBoxFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> ListaFiltrada;
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            ListaFiltrada = Negocio.listar();
+            string text = txtBoxFiltro.Text;
+
+            if (text != "")
+            {
+                ListaFiltrada = ListaFiltrada.FindAll(x => x.Nombre.ToLower().Contains(text.ToLower()) || x.Descripcion.ToLower().Contains(text.ToLower()) || x.Codigo.ToLower().Contains(text.ToLower()));
+            }
+
+
+            dgvBuscarArt.DataSource = null;
+            dgvBuscarArt.DataSource = ListaFiltrada;
+            dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
+            dgvBuscarArt.Columns["Id"].Visible = false;
+        }
+
+        private void dgvBuscarArt_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvBuscarArt.CurrentRow != null)
+            {
+                PbImagen.Visible = true;
+                Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                cargarImagen(seleccionado.ListaImagenes[0].Url);
+            }
+            else
+            {
+                PbImagen.Visible = false;
+            }
+      
         }
     }
 }
