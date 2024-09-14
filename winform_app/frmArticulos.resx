@@ -117,4 +117,229 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnSalir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>797, 322</value>
+  </data>
+  <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnSalir.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
+    <value>btnSalir</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtFiltroRapido.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtFiltroRapido.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 9</value>
+  </data>
+  <data name="txtFiltroRapido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>567, 20</value>
+  </data>
+  <data name="txtFiltroRapido.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;txtFiltroRapido.Name" xml:space="preserve">
+    <value>txtFiltroRapido</value>
+  </data>
+  <data name="&gt;&gt;txtFiltroRapido.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtFiltroRapido.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtFiltroRapido.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblFiltroRapido.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFiltroRapido.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFiltroRapido.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="lblFiltroRapido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="lblFiltroRapido.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lblFiltroRapido.Text" xml:space="preserve">
+    <value>Filtro Rápido:</value>
+  </data>
+  <data name="&gt;&gt;lblFiltroRapido.Name" xml:space="preserve">
+    <value>lblFiltroRapido</value>
+  </data>
+  <data name="&gt;&gt;lblFiltroRapido.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFiltroRapido.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblFiltroRapido.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnAnterior.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnAnterior.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAnterior.Location" type="System.Drawing.Point, System.Drawing">
+    <value>660, 241</value>
+  </data>
+  <data name="btnAnterior.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 31</value>
+  </data>
+  <data name="btnAnterior.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnAnterior.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="&gt;&gt;btnAnterior.Name" xml:space="preserve">
+    <value>btnAnterior</value>
+  </data>
+  <data name="&gt;&gt;btnAnterior.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAnterior.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnAnterior.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSiguiente.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnSiguiente.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSiguiente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>814, 241</value>
+  </data>
+  <data name="btnSiguiente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 31</value>
+  </data>
+  <data name="btnSiguiente.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnSiguiente.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnSiguiente.Name" xml:space="preserve">
+    <value>btnSiguiente</value>
+  </data>
+  <data name="&gt;&gt;btnSiguiente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSiguiente.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSiguiente.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pbxImagen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="pbxImagen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbxImagen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>660, 35</value>
+  </data>
+  <data name="pbxImagen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 200</value>
+  </data>
+  <data name="pbxImagen.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbxImagen.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;pbxImagen.Name" xml:space="preserve">
+    <value>pbxImagen</value>
+  </data>
+  <data name="&gt;&gt;pbxImagen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbxImagen.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbxImagen.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="dgvArticulos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvArticulos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 35</value>
+  </data>
+  <data name="dgvArticulos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>642, 310</value>
+  </data>
+  <data name="dgvArticulos.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;dgvArticulos.Name" xml:space="preserve">
+    <value>dgvArticulos</value>
+  </data>
+  <data name="&gt;&gt;dgvArticulos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvArticulos.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvArticulos.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>884, 357</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Articulos</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmArticulos</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -120,6 +120,9 @@
     <EmbeddedResource Include="frmAltaMarca.resx">
       <DependentUpon>frmAltaMarca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmArticulos.aa.resx">
+      <DependentUpon>frmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>
     </EmbeddedResource>

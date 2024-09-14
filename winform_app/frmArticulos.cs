@@ -23,7 +23,6 @@ namespace winform_app
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             cargar();
-            
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -33,37 +32,10 @@ namespace winform_app
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 cargarImagen(seleccionado.ListaImagenes[0].Url);
-                dgvArticulos.Columns["IndiceImagen"].Visible = false;
-                dgvArticulos.Columns["Id"].Visible = false;
             }   
         }
 
-        private void cargar()
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            try
-            {
-                listaArticulos = negocio.listar();
-                dgvArticulos.DataSource = listaArticulos;
-                cargarImagen(listaArticulos[0].ListaImagenes[0].Url);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void cargarImagen(string imagen)
-        {
-            try
-            {
-                pbxImagen.Load(imagen);
-            }
-            catch (Exception ex)
-            {
-                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
-            }
-        }
+        
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
@@ -93,6 +65,79 @@ namespace winform_app
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
             cargarImagen(imagen);
+        }
+
+        //SALIR
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //FILTRO RAPIDO
+        private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> ListaFiltrada;
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            ListaFiltrada = Negocio.listar();
+            string text = txtFiltroRapido.Text;
+
+            if (text != "")
+            {
+                ListaFiltrada = ListaFiltrada.FindAll(x => x.Nombre.ToLower().Contains(text.ToLower()) || x.Descripcion.ToLower().Contains(text.ToLower()) || x.Codigo.ToLower().Contains(text.ToLower()));
+            }
+
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = ListaFiltrada;
+            ajusteColumnas();
+        }
+
+        //FUNCIONES
+
+        //RECARGAR VENTANA
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulos = negocio.listar();
+                dgvArticulos.DataSource = listaArticulos;
+                cargarImagen(listaArticulos[0].ListaImagenes[0].Url);
+                ajusteColumnas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        //RECARGAR IMAGEN
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
+            }
+        }
+
+        //AJUSTES PERSONALIZADOS PARA DATA GRID VIEW
+        private void ajusteColumnas()
+        {
+            //OCULTAR COLUMNAS
+            dgvArticulos.Columns["IndiceImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+            //AJUSTAR TAMAÑOS
+            dgvArticulos.Columns["Codigo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["marca_"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["categoria_"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //JUSTIFICAR CONTENIDO
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
     }
 }
