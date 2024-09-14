@@ -24,6 +24,8 @@ namespace winform_app
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             cargar();
+            frmArticulos frmArticulos;
+            frmArticulos = this;
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)

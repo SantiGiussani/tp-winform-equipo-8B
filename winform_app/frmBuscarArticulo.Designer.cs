@@ -32,6 +32,9 @@
             this.PbImagen = new System.Windows.Forms.PictureBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtBoxFiltro = new System.Windows.Forms.TextBox();
+            this.btnImagenDer = new System.Windows.Forms.Button();
+            this.btnImagenIzq = new System.Windows.Forms.Button();
+            this.lblCantImagen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbImagen)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +47,6 @@
             this.dgvBuscarArt.Name = "dgvBuscarArt";
             this.dgvBuscarArt.Size = new System.Drawing.Size(830, 343);
             this.dgvBuscarArt.TabIndex = 0;
-           
             this.dgvBuscarArt.CurrentCellChanged += new System.EventHandler(this.dgvBuscarArt_CurrentCellChanged);
             // 
             // PbImagen
@@ -53,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PbImagen.Location = new System.Drawing.Point(848, 52);
             this.PbImagen.Name = "PbImagen";
-            this.PbImagen.Size = new System.Drawing.Size(253, 215);
+            this.PbImagen.Size = new System.Drawing.Size(212, 200);
             this.PbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PbImagen.TabIndex = 1;
             this.PbImagen.TabStop = false;
@@ -79,18 +81,51 @@
             this.txtBoxFiltro.TabIndex = 3;
             this.txtBoxFiltro.TextChanged += new System.EventHandler(this.txtBoxFiltro_TextChanged);
             // 
+            // btnImagenDer
+            // 
+            this.btnImagenDer.Location = new System.Drawing.Point(993, 258);
+            this.btnImagenDer.Name = "btnImagenDer";
+            this.btnImagenDer.Size = new System.Drawing.Size(67, 23);
+            this.btnImagenDer.TabIndex = 4;
+            this.btnImagenDer.Text = ">";
+            this.btnImagenDer.UseVisualStyleBackColor = true;
+            this.btnImagenDer.Visible = false;
+            this.btnImagenDer.Click += new System.EventHandler(this.btnImagenDer_Click);
+            // 
+            // btnImagenIzq
+            // 
+            this.btnImagenIzq.Location = new System.Drawing.Point(848, 258);
+            this.btnImagenIzq.Name = "btnImagenIzq";
+            this.btnImagenIzq.Size = new System.Drawing.Size(68, 23);
+            this.btnImagenIzq.TabIndex = 5;
+            this.btnImagenIzq.Text = "<";
+            this.btnImagenIzq.UseVisualStyleBackColor = true;
+            this.btnImagenIzq.Visible = false;
+            this.btnImagenIzq.Click += new System.EventHandler(this.btnImagenIzq_Click);
+            // 
+            // lblCantImagen
+            // 
+            this.lblCantImagen.AutoSize = true;
+            this.lblCantImagen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCantImagen.Location = new System.Drawing.Point(951, 263);
+            this.lblCantImagen.Name = "lblCantImagen";
+            this.lblCantImagen.Size = new System.Drawing.Size(0, 13);
+            this.lblCantImagen.TabIndex = 6;
+            // 
             // frmBuscarArticulo
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1132, 430);
+            this.Controls.Add(this.lblCantImagen);
+            this.Controls.Add(this.btnImagenIzq);
+            this.Controls.Add(this.btnImagenDer);
             this.Controls.Add(this.txtBoxFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.PbImagen);
             this.Controls.Add(this.dgvBuscarArt);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1132, 430);
             this.Name = "frmBuscarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+           
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbImagen)).EndInit();
             this.ResumeLayout(false);
@@ -110,5 +145,8 @@
         private System.Windows.Forms.PictureBox PbImagen;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtBoxFiltro;
+        private System.Windows.Forms.Button btnImagenDer;
+        private System.Windows.Forms.Button btnImagenIzq;
+        private System.Windows.Forms.Label lblCantImagen;
     }
 }

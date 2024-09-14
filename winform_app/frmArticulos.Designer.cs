@@ -58,7 +58,7 @@
             // lblFiltroRapido
             // 
             resources.ApplyResources(this.lblFiltroRapido, "lblFiltroRapido");
-            this.lblFiltroRapido.BackColor = System.Drawing.Color.Transparent;
+            this.lblFiltroRapido.BackColor = System.Drawing.Color.White;
             this.lblFiltroRapido.Name = "lblFiltroRapido";
             // 
             // btnAnterior
@@ -86,6 +86,7 @@
             this.dgvArticulos.AllowUserToOrderColumns = true;
             this.dgvArticulos.AllowUserToResizeRows = false;
             resources.ApplyResources(this.dgvArticulos, "dgvArticulos");
+            this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.MultiSelect = false;
@@ -98,13 +99,14 @@
             // lblImagen
             // 
             resources.ApplyResources(this.lblImagen, "lblImagen");
+            this.lblImagen.BackColor = System.Drawing.Color.White;
             this.lblImagen.Name = "lblImagen";
             // 
             // frmArticulos
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);
@@ -113,6 +115,7 @@
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnSalir);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmArticulos";
             this.TransparencyKey = System.Drawing.Color.DarkSlateGray;
             this.Load += new System.EventHandler(this.frmArticulos_Load);

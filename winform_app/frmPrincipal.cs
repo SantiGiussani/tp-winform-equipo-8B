@@ -111,5 +111,10 @@ namespace winform_app
 
             listaCategoria.ShowDialog();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

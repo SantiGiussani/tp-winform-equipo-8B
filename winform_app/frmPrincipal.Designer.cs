@@ -49,7 +49,7 @@
             this.AdminFamiliasToolStrip});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(1242, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(1402, 24);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -102,27 +102,30 @@
             // btnAdminMarcas
             // 
             this.btnAdminMarcas.Name = "btnAdminMarcas";
-            this.btnAdminMarcas.Size = new System.Drawing.Size(180, 22);
+            this.btnAdminMarcas.Size = new System.Drawing.Size(130, 22);
             this.btnAdminMarcas.Text = "Marcas";
             this.btnAdminMarcas.Click += new System.EventHandler(this.btnAdminMarcas_Click);
             // 
             // btnAdminCategorías
             // 
             this.btnAdminCategorías.Name = "btnAdminCategorías";
-            this.btnAdminCategorías.Size = new System.Drawing.Size(180, 22);
+            this.btnAdminCategorías.Size = new System.Drawing.Size(130, 22);
             this.btnAdminCategorías.Text = "Categorías";
             this.btnAdminCategorías.Click += new System.EventHandler(this.btnAdminCategorías_Click);
             // 
             // frmPrincipal
             // 
-            this.ClientSize = new System.Drawing.Size(1242, 535);
+            this.ClientSize = new System.Drawing.Size(1402, 592);
             this.Controls.Add(this.menuStrip3);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip3;
-            this.MinimumSize = new System.Drawing.Size(1258, 574);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1418, 631);
+            this.MinimumSize = new System.Drawing.Size(1418, 631);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADMINISTRADOR DE ARTICULOS";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
             this.ResumeLayout(false);

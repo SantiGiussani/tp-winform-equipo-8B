@@ -55,15 +55,67 @@ namespace winform_app
             if (dgvBuscarArt.CurrentRow != null)
             {
                 PbImagen.Visible = true;
+                btnImagenDer.Visible = true;
+                btnImagenIzq.Visible = true;
+                lblCantImagen.Visible = true;
                 Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 cargarImagen(seleccionado.ListaImagenes[0].Url);
+                configEtiquetaImg(seleccionado);
             }
             else
             {
                 PbImagen.Visible = false;
+                btnImagenDer.Visible = false;
+                btnImagenIzq.Visible = false;
+                lblCantImagen.Visible = false;
             }
-      
+        }
+
+        private void configEtiquetaImg(Articulo seleccionado)
+        {
+            seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
+            int cantImagenes = seleccionado.ListaImagenes.Count;
+            int imgActual = seleccionado.IndiceImagen + 1;
+            lblCantImagen.Text = imgActual + "/" + cantImagenes;
+
+            //POSICIÓN ETIQUETA
+            int btnIzquierdo = btnImagenIzq.Location.X;
+            int btnDerecho = btnImagenDer.Location.X + btnImagenDer.Width;
+            int posicionCentrada = (btnDerecho + btnIzquierdo) / 2;
+            lblCantImagen.Location = new Point(posicionCentrada - (lblCantImagen.Width / 2), lblCantImagen.Location.Y);
+        }
+
+        private void btnImagenIzq_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
+
+            int maximo = seleccionado.ListaImagenes.Count;
+
+            if (seleccionado.IndiceImagen == 0)
+                seleccionado.IndiceImagen = maximo - 1;
+            else
+                seleccionado.IndiceImagen--;
+
+            string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
+            cargarImagen(imagen);
+            configEtiquetaImg(seleccionado);
+        }
+
+        private void btnImagenDer_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
+
+            int maximo = seleccionado.ListaImagenes.Count;
+
+            if (seleccionado.IndiceImagen == maximo - 1)
+                seleccionado.IndiceImagen = 0;
+            else
+                seleccionado.IndiceImagen++;
+
+            string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
+            cargarImagen(imagen);
+            configEtiquetaImg(seleccionado);
         }
     }
 }
