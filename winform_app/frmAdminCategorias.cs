@@ -64,5 +64,32 @@ namespace winform_app
 
             cargar();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
+        }
+
+        private void eliminar()
+        {
+            CategoriaNegocio negocio = new CategoriaNegocio();
+            Categoria seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+
+                    negocio.eliminar(seleccionado.Id);
+
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
