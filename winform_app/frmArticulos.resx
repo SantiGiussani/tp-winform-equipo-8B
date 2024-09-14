@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>797, 322</value>
+    <value>801, 326</value>
   </data>
   <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txtFiltroRapido.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -154,7 +154,7 @@
     <value>87, 9</value>
   </data>
   <data name="txtFiltroRapido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>567, 20</value>
+    <value>571, 20</value>
   </data>
   <data name="txtFiltroRapido.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -169,7 +169,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtFiltroRapido.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lblFiltroRapido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -199,7 +199,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblFiltroRapido.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnAnterior.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -208,7 +208,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnAnterior.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 241</value>
+    <value>664, 241</value>
   </data>
   <data name="btnAnterior.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 31</value>
@@ -229,7 +229,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnAnterior.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnSiguiente.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -238,7 +238,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSiguiente.Location" type="System.Drawing.Point, System.Drawing">
-    <value>814, 241</value>
+    <value>818, 241</value>
   </data>
   <data name="btnSiguiente.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 31</value>
@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSiguiente.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="pbxImagen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -268,7 +268,7 @@
     <value>NoControl</value>
   </data>
   <data name="pbxImagen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 35</value>
+    <value>664, 35</value>
   </data>
   <data name="pbxImagen.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 200</value>
@@ -289,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbxImagen.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="dgvArticulos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -298,7 +298,7 @@
     <value>12, 35</value>
   </data>
   <data name="dgvArticulos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>642, 310</value>
+    <value>646, 314</value>
   </data>
   <data name="dgvArticulos.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -313,7 +313,31 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvArticulos.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
+  </data>
+  <data name="lblImagen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblImagen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>759, 250</value>
+  </data>
+  <data name="lblImagen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="lblImagen.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;lblImagen.Name" xml:space="preserve">
+    <value>lblImagen</value>
+  </data>
+  <data name="&gt;&gt;lblImagen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblImagen.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblImagen.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -324,14 +348,11 @@
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>884, 357</value>
+    <value>888, 361</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>904, 400</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Articulos</value>

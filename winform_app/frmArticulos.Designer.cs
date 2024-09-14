@@ -36,6 +36,7 @@
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.lblImagen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
@@ -94,11 +95,17 @@
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
+            // lblImagen
+            // 
+            resources.ApplyResources(this.lblImagen, "lblImagen");
+            this.lblImagen.Name = "lblImagen";
+            // 
             // frmArticulos
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);
             this.Controls.Add(this.btnAnterior);
@@ -106,7 +113,6 @@
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnSalir);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmArticulos";
             this.TransparencyKey = System.Drawing.Color.DarkSlateGray;
             this.Load += new System.EventHandler(this.frmArticulos_Load);
@@ -125,5 +131,6 @@
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.Label lblImagen;
     }
 }

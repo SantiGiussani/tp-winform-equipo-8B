@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,7 @@ namespace winform_app
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 cargarImagen(seleccionado.ListaImagenes[0].Url);
+                configEtiquetaImg(seleccionado);
             }   
         }
 
@@ -50,6 +52,7 @@ namespace winform_app
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
             cargarImagen(imagen);
+            configEtiquetaImg(seleccionado);
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -65,6 +68,7 @@ namespace winform_app
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
             cargarImagen(imagen);
+            configEtiquetaImg(seleccionado);
         }
 
         //SALIR
@@ -86,7 +90,6 @@ namespace winform_app
                 ListaFiltrada = ListaFiltrada.FindAll(x => x.Nombre.ToLower().Contains(text.ToLower()) || x.Descripcion.ToLower().Contains(text.ToLower()) || x.Codigo.ToLower().Contains(text.ToLower()));
             }
 
-
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = ListaFiltrada;
             ajusteColumnas();
@@ -103,7 +106,9 @@ namespace winform_app
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
                 cargarImagen(listaArticulos[0].ListaImagenes[0].Url);
+                configEtiquetaImg(listaArticulos[0]);
                 ajusteColumnas();
+
             }
             catch (Exception ex)
             {
@@ -138,6 +143,20 @@ namespace winform_app
             dgvArticulos.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             //JUSTIFICAR CONTENIDO
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+        }
+
+        private void configEtiquetaImg(Articulo seleccionado)
+        {
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            int cantImagenes = seleccionado.ListaImagenes.Count;
+            int imgActual = seleccionado.IndiceImagen + 1;
+            lblImagen.Text = imgActual + "/" + cantImagenes;
+
+            //POSICIÓN ETIQUETA
+            int btnIzquierdo = btnAnterior.Location.X;
+            int btnDerecho = btnSiguiente.Location.X + btnSiguiente.Width;
+            int posicionCentrada = (btnDerecho + btnIzquierdo) / 2;
+            lblImagen.Location = new Point(posicionCentrada - (lblImagen.Width / 2), lblImagen.Location.Y);
         }
     }
 }
