@@ -18,6 +18,7 @@ namespace winform_app
             InitializeComponent();
         }
 
+        //LISTADO DE ARTICULOS
         private void MenuListado_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)
@@ -35,6 +36,7 @@ namespace winform_app
             ventana.Show();
         }
 
+        //BUSQUEDA DE ARTICULOS
         private void busquedaDeArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)
@@ -52,6 +54,9 @@ namespace winform_app
             ventana.Show();
         }
 
+        //ADMINISTRAR ARTICULOS
+
+        //AGREGAR ARTICULO
         private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)
@@ -69,12 +74,7 @@ namespace winform_app
             ventana.Show();
         }
 
-        private void btnAgregarMarca_Click(object sender, EventArgs e)
-        {
-            frmAgregarMarca altaMarca = new frmAgregarMarca();
-            altaMarca.ShowDialog();
-        }
-
+        //ADMINISTRAR ARTICULO
         private void administrarArticulosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             foreach (var item in Application.OpenForms)
@@ -90,6 +90,26 @@ namespace winform_app
             frmAdministrarArticulo ventana = new frmAdministrarArticulo();
             ventana.MdiParent = this;
             ventana.Show();
+        }
+
+        //ADMINISTRAR FAMILIAS
+
+        //MARCAS
+        private void btnAdminMarcas_Click(object sender, EventArgs e)
+        {
+            Marca marca = new Marca();
+            frmAdminMarcas listaMarcas = new frmAdminMarcas();
+
+            listaMarcas.ShowDialog();
+        }
+
+        //CATEGORIAS
+        private void btnAdminCategorías_Click(object sender, EventArgs e)
+        {
+            Categoria categoria = new Categoria();
+            frmAdminCategorias listaCategoria = new frmAdminCategorias();
+
+            listaCategoria.ShowDialog();
         }
     }
 }

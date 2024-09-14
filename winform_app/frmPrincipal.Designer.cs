@@ -34,14 +34,9 @@
             this.administrarArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarArticulosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.administrarMarcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAgregarMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnModificarMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnEliminarMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.administrarCategoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAgregarCategoría = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnModificarCategoría = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnEliminarCategoría = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminFamiliasToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdminMarcas = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdminCategorías = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,8 +46,7 @@
             this.MenuListado,
             this.busquedaDeArticulosToolStripMenuItem,
             this.administrarArticulosToolStripMenuItem,
-            this.administrarMarcasToolStripMenuItem,
-            this.administrarCategoríasToolStripMenuItem});
+            this.AdminFamiliasToolStrip});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Size = new System.Drawing.Size(1242, 24);
@@ -65,8 +59,6 @@
             this.MenuListado.Size = new System.Drawing.Size(123, 20);
             this.MenuListado.Text = "Listado de Articulos";
             this.MenuListado.Click += new System.EventHandler(this.MenuListado_Click);
-           
-           
             // 
             // busquedaDeArticulosToolStripMenuItem
             // 
@@ -98,62 +90,28 @@
             this.administrarArticulosToolStripMenuItem1.Text = "Administrar Articulos";
             this.administrarArticulosToolStripMenuItem1.Click += new System.EventHandler(this.administrarArticulosToolStripMenuItem1_Click);
             // 
-            // administrarMarcasToolStripMenuItem
+            // AdminFamiliasToolStrip
             // 
-            this.administrarMarcasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAgregarMarca,
-            this.btnModificarMarca,
-            this.btnEliminarMarca});
-            this.administrarMarcasToolStripMenuItem.Name = "administrarMarcasToolStripMenuItem";
-            this.administrarMarcasToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
-            this.administrarMarcasToolStripMenuItem.Text = "Administrar Marcas";
+            this.AdminFamiliasToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAdminMarcas,
+            this.btnAdminCategorías});
+            this.AdminFamiliasToolStrip.Name = "AdminFamiliasToolStrip";
+            this.AdminFamiliasToolStrip.Size = new System.Drawing.Size(127, 20);
+            this.AdminFamiliasToolStrip.Text = "Administrar Familias";
             // 
-            // btnAgregarMarca
+            // btnAdminMarcas
             // 
-            this.btnAgregarMarca.Name = "btnAgregarMarca";
-            this.btnAgregarMarca.Size = new System.Drawing.Size(161, 22);
-            this.btnAgregarMarca.Text = "Agregar Marca";
-            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
+            this.btnAdminMarcas.Name = "btnAdminMarcas";
+            this.btnAdminMarcas.Size = new System.Drawing.Size(180, 22);
+            this.btnAdminMarcas.Text = "Marcas";
+            this.btnAdminMarcas.Click += new System.EventHandler(this.btnAdminMarcas_Click);
             // 
-            // btnModificarMarca
+            // btnAdminCategorías
             // 
-            this.btnModificarMarca.Name = "btnModificarMarca";
-            this.btnModificarMarca.Size = new System.Drawing.Size(161, 22);
-            this.btnModificarMarca.Text = "Modificar Marca";
-            // 
-            // btnEliminarMarca
-            // 
-            this.btnEliminarMarca.Name = "btnEliminarMarca";
-            this.btnEliminarMarca.Size = new System.Drawing.Size(161, 22);
-            this.btnEliminarMarca.Text = "Eliminar Marca";
-            // 
-            // administrarCategoríasToolStripMenuItem
-            // 
-            this.administrarCategoríasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAgregarCategoría,
-            this.btnModificarCategoría,
-            this.btnEliminarCategoría});
-            this.administrarCategoríasToolStripMenuItem.Name = "administrarCategoríasToolStripMenuItem";
-            this.administrarCategoríasToolStripMenuItem.Size = new System.Drawing.Size(140, 20);
-            this.administrarCategoríasToolStripMenuItem.Text = "Administrar Categorías";
-            // 
-            // btnAgregarCategoría
-            // 
-            this.btnAgregarCategoría.Name = "btnAgregarCategoría";
-            this.btnAgregarCategoría.Size = new System.Drawing.Size(179, 22);
-            this.btnAgregarCategoría.Text = "Agregar Categoría";
-            // 
-            // btnModificarCategoría
-            // 
-            this.btnModificarCategoría.Name = "btnModificarCategoría";
-            this.btnModificarCategoría.Size = new System.Drawing.Size(179, 22);
-            this.btnModificarCategoría.Text = "Modificar Categoría";
-            // 
-            // btnEliminarCategoría
-            // 
-            this.btnEliminarCategoría.Name = "btnEliminarCategoría";
-            this.btnEliminarCategoría.Size = new System.Drawing.Size(179, 22);
-            this.btnEliminarCategoría.Text = "Eliminar Categoría";
+            this.btnAdminCategorías.Name = "btnAdminCategorías";
+            this.btnAdminCategorías.Size = new System.Drawing.Size(180, 22);
+            this.btnAdminCategorías.Text = "Categorías";
+            this.btnAdminCategorías.Click += new System.EventHandler(this.btnAdminCategorías_Click);
             // 
             // frmPrincipal
             // 
@@ -189,14 +147,9 @@
         private System.Windows.Forms.ToolStripMenuItem busquedaDeArticulosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarArticulosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarArticuloToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem administrarMarcasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem btnAgregarMarca;
-        private System.Windows.Forms.ToolStripMenuItem btnModificarMarca;
-        private System.Windows.Forms.ToolStripMenuItem btnEliminarMarca;
-        private System.Windows.Forms.ToolStripMenuItem administrarCategoríasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem btnAgregarCategoría;
-        private System.Windows.Forms.ToolStripMenuItem btnModificarCategoría;
-        private System.Windows.Forms.ToolStripMenuItem btnEliminarCategoría;
         private System.Windows.Forms.ToolStripMenuItem administrarArticulosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem AdminFamiliasToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem btnAdminMarcas;
+        private System.Windows.Forms.ToolStripMenuItem btnAdminCategorías;
     }
 }

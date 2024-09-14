@@ -7,61 +7,79 @@ using System.Threading.Tasks;
 
 namespace negocio
 {
-   
-        public class CategoriaNegocio
+    public class CategoriaNegocio
+    {
+        public List<Categoria> listar()
         {
-            public List<Categoria> listar()
+            List<Categoria> lista = new List<Categoria>();
+            AccesoDatos datos = new AccesoDatos();
+            try
             {
-                List<Categoria> lista = new List<Categoria>();
-                AccesoDatos datos = new AccesoDatos();
-                try
-                {
-                    datos.setearConsulta("Select Id, Descripcion From CATEGORIAS");
-                    datos.ejecutarLectura();
+                datos.setearConsulta("Select Id, Descripcion From CATEGORIAS");
+                datos.ejecutarLectura();
 
-                    while (datos.Lector.Read())
-                    {
-                        Categoria aux = new Categoria();
-                        aux.Id = (int)datos.Lector["Id"];
-                        aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                        lista.Add(aux);
-                    }
-
-                    return lista;
-                }
-                catch (Exception ex)
+                while (datos.Lector.Read())
                 {
-                    throw ex;
+                    Categoria aux = new Categoria();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    lista.Add(aux);
                 }
-                finally
-                {
-                    datos.cerrarConexion();
-                }
+
+                return lista;
             }
-
-
-            public void agregarCategoria(Categoria nuevaCategoria)
+            catch (Exception ex)
             {
-                AccesoDatos datos = new AccesoDatos();
-
-                try
-                {
-                    datos.setearConsulta("Insert into CATEGORIAS (Descripcion)values(@descripcion)");
-                    datos.setearParametro("@descripcion", nuevaCategoria.Descripcion);
-                    datos.ejecutarAccion();
-
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    datos.cerrarConexion();
-                }
+                throw ex;
             }
-
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
+
+
+        public void agregar(Categoria nuevaCategoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Insert into CATEGORIAS (Descripcion) values (@descripcion)");
+                datos.setearParametro("@descripcion", nuevaCategoria.Descripcion);
+                datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Categoria modificado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update CATEGORIAS set Descripcion = @descripcion Where Id = @id");
+                datos.setearParametro("@descripcion", modificado.Descripcion);
+                datos.setearParametro("@id", modificado.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+    }
 }

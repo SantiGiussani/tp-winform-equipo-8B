@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,54 +10,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using dominio;
-using negocio;
 
 namespace winform_app
 {
-    public partial class frmAgregarMarca : Form
+    public partial class frmAltaMarca : Form
     {
-        private List<Marca> listaMarcas;
+        //ATRIBUTOS
         private Marca marca = null;
-        
 
-        public frmAgregarMarca()
+        //CONSTRUCTORES
+        public frmAltaMarca()
         {
             InitializeComponent();
+            Text = "Agregar Marca";
         }
-
-        public frmAgregarMarca(Marca marca)
+        public frmAltaMarca(Marca marca)
         {
             InitializeComponent();
             this.marca = marca;
             Text = "Modificar Marca";
         }
 
-        private void frmAgregarMarca_Load(object sender, EventArgs e)
+        //CARGA DE FORMULARIO
+        private void frmAltaMarca_Load(object sender, EventArgs e)
         {
             configurarAutocompletado();
-            //MODIFICACION
             if (marca != null)
             {
-                txtMarca.Text = marca.Descripcion;       
-            }           
+                txtId.Text= marca.Id.ToString();
+                txtDescripcion.Text = marca.Descripcion;
+            }
         }
 
+        //SALIR
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        //ACEPTAR
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             MarcaNegocio negocio = new MarcaNegocio();
-
             try
             {
                 if (marca == null)
                     marca = new Marca();
-
-                marca.Descripcion = txtMarca.Text;
+                
+                marca.Descripcion = txtDescripcion.Text;
 
                 if (marca.Id != 0)
                 {
@@ -77,8 +79,12 @@ namespace winform_app
             }
         }
 
+
+
+        //FUNCIONES
         private void configurarAutocompletado()
         {
+            List<Marca> listaMarcas;
             MarcaNegocio negocio = new MarcaNegocio();
 
             // Crear una lista con las marcas
@@ -96,9 +102,9 @@ namespace winform_app
             autoCompleteCollection.AddRange(listaDescripciones.ToArray());
 
             // Asignar la colección al TextBox
-            txtMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend; // Opciones: Suggest, Append, SuggestAppend
-            txtMarca.AutoCompleteSource = AutoCompleteSource.CustomSource; // Fuente personalizada
-            txtMarca.AutoCompleteCustomSource = autoCompleteCollection; // Asignar la colección
+            txtDescripcion.AutoCompleteMode = AutoCompleteMode.SuggestAppend; // Opciones: Suggest, Append, SuggestAppend
+            txtDescripcion.AutoCompleteSource = AutoCompleteSource.CustomSource; // Fuente personalizada
+            txtDescripcion.AutoCompleteCustomSource = autoCompleteCollection; // Asignar la colección
         }
-    }
+    } 
 }
