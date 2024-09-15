@@ -46,6 +46,7 @@
             this.btnAnterior.TabIndex = 8;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
@@ -55,6 +56,7 @@
             this.btnSiguiente.TabIndex = 7;
             this.btnSiguiente.Text = ">";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // pbxImagen
             // 
@@ -74,6 +76,7 @@
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(650, 305);
             this.dgvArticulos.TabIndex = 5;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged_1);
             // 
             // btnEditar
             // 
@@ -83,6 +86,7 @@
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -106,7 +110,7 @@
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "frmAdministrarArticulo";
-            this.Text = "frmAdministrarArticulo";
+            this.Text = "Gestion articulos";
             this.Load += new System.EventHandler(this.frmAdministrarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();

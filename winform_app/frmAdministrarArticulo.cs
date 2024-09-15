@@ -1,6 +1,4 @@
-﻿using dominio;
-using negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dominio;
+using negocio;
 
 namespace winform_app
 {
     public partial class frmAdministrarArticulo : Form
     {
-
+        private Articulo seleccionado = null;
         private List<Articulo> listaArticulo;
+
+
         public frmAdministrarArticulo()
         {
             InitializeComponent();
@@ -23,14 +25,19 @@ namespace winform_app
 
 
 
+        private void emprolijarDgv()
+        {
+            dgvArticulos.Columns["IndiceImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
+        }
 
 
-
-        private void cargarImagen(string imagen)
+        private void cargarImagen(Imagen imagen)
         {
             try
             {
-                pbxImagen.Load(imagen);
+                pbxImagen.Load(imagen.Url);
             }
             catch (Exception ex)
             {
@@ -43,21 +50,22 @@ namespace winform_app
         {
             if (dgvArticulos.CurrentRow != null)
             {
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                cargarImagen(seleccionado.ListaImagenes[0].Url);
+                cargarImagen(seleccionado.ListaImagenes[0]);
             }
         }
 
 
-        private void cargar() 
+        private void cargar()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
-                cargarImagen(listaArticulo[0].ListaImagenes[0].Url);
+                emprolijarDgv();
+                cargarImagen(listaArticulo[0].ListaImagenes[0]);
 
             }
             catch (Exception ex)
@@ -73,8 +81,7 @@ namespace winform_app
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            ImagenNegocio imagenes=new ImagenNegocio();
-            Articulo seleccionado;
+            ImagenNegocio imagenes = new ImagenNegocio();
 
             try
             {
@@ -98,5 +105,78 @@ namespace winform_app
         {
             cargar();
         }
+
+
+
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado = new Articulo();
+
+            if (dgvArticulos.CurrentRow != null)
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                List<Imagen> lista = new List<Imagen>();
+                lista = seleccionado.ListaImagenes;
+                int maximo = lista.Count;
+
+                if (seleccionado.IndiceImagen < maximo - 1)
+                    seleccionado.IndiceImagen++;
+                else if (seleccionado.IndiceImagen == maximo - 1)
+                    seleccionado.IndiceImagen = 0;
+
+                cargarImagen(lista[seleccionado.IndiceImagen]);
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            List<Imagen> lista = new List<Imagen>();
+            lista = seleccionado.ListaImagenes;
+            int maximo = lista.Count;
+
+            if (seleccionado.IndiceImagen == 0)
+                seleccionado.IndiceImagen = maximo - 1;
+            else
+                seleccionado.IndiceImagen--;
+
+            cargarImagen(lista[seleccionado.IndiceImagen]);
+        }
+
+        private void dgvArticulos_SelectionChanged_1(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+                if (seleccionado.ListaImagenes != null && seleccionado.ListaImagenes.Count > 0)
+                {
+                    // Reiniciar el índice de la imagen para el nuevo artículo
+                    seleccionado.IndiceImagen = 0;
+
+                    // Cargar la primera imagen de la lista
+                    cargarImagen(seleccionado.ListaImagenes[0]);
+                }
+                else
+                {
+                    // Si no hay imágenes, cargar una imagen por defecto
+                    cargarImagen(new Imagen { Url = "https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg" });
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            frmEditarArticulo editarArticulo = new frmEditarArticulo(seleccionado);
+            editarArticulo.ShowDialog();
+            cargar();
+        }
     }
 }
+
+

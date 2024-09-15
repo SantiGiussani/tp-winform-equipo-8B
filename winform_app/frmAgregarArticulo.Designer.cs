@@ -88,6 +88,7 @@
             this.btCancelar.TabIndex = 49;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // tbPrecio
             // 
@@ -232,7 +233,7 @@
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lbCodArt);
             this.Name = "frmAgregarArticulo";
-            this.Text = "frmAgregarArticulo";
+            this.Text = "Agregar articulo";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenArt)).EndInit();
             this.ResumeLayout(false);

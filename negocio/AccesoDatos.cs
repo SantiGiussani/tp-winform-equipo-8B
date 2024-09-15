@@ -20,7 +20,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS02; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -30,13 +30,14 @@ namespace negocio
             comando.CommandText = consulta;
         }
 
-        public void ejecutarLectura()
+        public SqlDataReader ejecutarLectura()
         {
             comando.Connection = conexion;
             try
             {
                 conexion.Open();
                 lector = comando.ExecuteReader();
+                return lector; // Devuelve el lector para que puedas usarlo en la verificación
             }
             catch (Exception ex)
             {
@@ -44,7 +45,11 @@ namespace negocio
             }
         }
 
-        public void cerrarConexion()
+
+
+
+
+            public void cerrarConexion()
         {
             if (lector != null)
                 lector.Close();

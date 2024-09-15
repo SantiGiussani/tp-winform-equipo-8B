@@ -113,6 +113,108 @@ namespace negocio
 
 
 
+
+
+
+        public void modificar(Articulo art)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio WHERE Id = @id");
+                datos.setearParametro("@id", art.Id);
+                datos.setearParametro("@codigo", art.Codigo);
+                datos.setearParametro("@nombre", art.Nombre);
+                datos.setearParametro("@descripcion", art.Descripcion);
+                datos.setearParametro("@idMarca", art.Marca_.Id);
+                datos.setearParametro("@idCategoria", art.Categoria_.Id);
+                datos.setearParametro("@precio", art.Precio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar el artículo", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+
+
+
+
+        public void actualizarImagenes(Articulo art)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Primero, eliminar todas las imágenes asociadas con el artículo
+                datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @idArticulo");
+                datos.setearParametro("@idArticulo", art.Id);
+                datos.ejecutarAccion();
+                datos.cerrarConexion();  // Cierra la conexión después de ejecutar la primera acción
+
+                // Luego, insertar las nuevas imágenes
+                foreach (var img in art.ListaImagenes)
+                {
+                    if (!string.IsNullOrEmpty(img.Url)) // Verificar que la URL no sea nula o vacía
+                    {
+                        datos = new AccesoDatos(); // Crear una nueva instancia para cada inserción
+                        datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
+                        datos.setearParametro("@idArticulo", art.Id);
+                        datos.setearParametro("@imagenUrl", img.Url);
+                        datos.ejecutarAccion();
+                        datos.cerrarConexion();  // Cerrar la conexión después de cada inserción
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new Exception("Error SQL al actualizar imágenes: " + sqlEx.Message, sqlEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar imágenes", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();  // Asegurar que la conexión se cierra al final
+            }
+        }
+
+
+
+        public bool existeCodigo(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Id FROM ARTICULOS WHERE Codigo = @codigo");
+                datos.setearParametro("@codigo", codigo);
+
+                // Ejecutar la consulta y leer los resultados
+                SqlDataReader lector = datos.ejecutarLectura();
+
+                // Verificar si se devolvió algún registro
+                return lector.HasRows;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al verificar el código de artículo.", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+
     }
 }
  
