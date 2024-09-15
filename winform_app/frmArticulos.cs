@@ -147,6 +147,8 @@ namespace winform_app
             dgvArticulos.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             //JUSTIFICAR CONTENIDO
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //AJUSTE FORMATOS
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
 
         private void configEtiquetaImg(Articulo seleccionado)

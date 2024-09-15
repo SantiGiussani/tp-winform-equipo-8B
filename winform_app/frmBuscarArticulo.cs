@@ -183,6 +183,8 @@ namespace winform_app
             dgvBuscarArt.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             //JUSTIFICAR CONTENIDO
             dgvBuscarArt.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //AJUSTE FORMATOS
+            dgvBuscarArt.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
 
         private void configEtiquetaImg(Articulo seleccionado)

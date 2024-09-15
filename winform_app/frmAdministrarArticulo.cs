@@ -23,92 +23,36 @@ namespace winform_app
             InitializeComponent();
         }
 
-
-
-        private void emprolijarDgv()
-        {
-            dgvArticulos.Columns["IndiceImagen"].Visible = false;
-            dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
-        }
-
-
-        private void cargarImagen(Imagen imagen)
-        {
-            try
-            {
-                pbxImagen.Load(imagen.Url);
-            }
-            catch (Exception ex)
-            {
-                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
-            }
-        }
-
-
-        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvArticulos.CurrentRow != null)
-            {
-                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                cargarImagen(seleccionado.ListaImagenes[0]);
-            }
-        }
-
-
-        private void cargar()
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            try
-            {
-                listaArticulo = negocio.listar();
-                dgvArticulos.DataSource = listaArticulo;
-                emprolijarDgv();
-                cargarImagen(listaArticulo[0].ListaImagenes[0]);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-
-
-
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ImagenNegocio imagenes = new ImagenNegocio();
-
-            try
-            {
-                DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar el registro", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    negocio.eliminar(seleccionado.Id);
-                    imagenes.eliminarImagenIdArticulo(seleccionado.Id);
-                    cargar();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
+        //CARGA FORMULARIO
         private void frmAdministrarArticulo_Load(object sender, EventArgs e)
         {
             cargar();
         }
 
+        //CAMBIO EN LA SELECCION DEL DGV
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
+                if (seleccionado.ListaImagenes != null && seleccionado.ListaImagenes.Count > 0)
+                {
+                    // Reiniciar el índice de la imagen para el nuevo artículo
+                    seleccionado.IndiceImagen = 0;
 
+                    // Cargar la primera imagen de la lista
+                    cargarImagen(seleccionado.ListaImagenes[0]);
+                }
+                else
+                {
+                    // Si no hay imágenes, cargar una imagen por defecto
+                    cargarImagen(new Imagen { Url = "https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg" });
+                }
+            }
+        }
 
+        //BOTONES
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -148,33 +92,120 @@ namespace winform_app
             cargarImagen(lista[seleccionado.IndiceImagen]);
         }
 
-        private void dgvArticulos_SelectionChanged_1(object sender, EventArgs e)
+        //ELIMINAR
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvArticulos.CurrentRow != null)
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ImagenNegocio imagenes = new ImagenNegocio();
+
+            try
             {
-                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-                if (seleccionado.ListaImagenes != null && seleccionado.ListaImagenes.Count > 0)
+                DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar el registro", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
                 {
-                    // Reiniciar el índice de la imagen para el nuevo artículo
-                    seleccionado.IndiceImagen = 0;
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    imagenes.eliminarImagenIdArticulo(seleccionado.Id);
+                    cargar();
+                }
 
-                    // Cargar la primera imagen de la lista
-                    cargarImagen(seleccionado.ListaImagenes[0]);
-                }
-                else
-                {
-                    // Si no hay imágenes, cargar una imagen por defecto
-                    cargarImagen(new Imagen { Url = "https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg" });
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
+        //EDITAR
         private void btnEditar_Click(object sender, EventArgs e)
         {
             frmEditarArticulo editarArticulo = new frmEditarArticulo(seleccionado);
             editarArticulo.ShowDialog();
             cargar();
+        }
+
+        //SALIR
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //FILTRO RAPIDO
+        private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> ListaFiltrada;
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            ListaFiltrada = Negocio.listar();
+            string text = txtFiltroRapido.Text;
+
+            if (text != "")
+            {
+                ListaFiltrada = ListaFiltrada.FindAll(x => x.Nombre.ToLower().Contains(text.ToLower()) || x.Descripcion.ToLower().Contains(text.ToLower()) || x.Codigo.ToLower().Contains(text.ToLower()));
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = ListaFiltrada;
+            ajusteColumnas();
+            dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+        }
+
+        //FUNCIONES
+
+        //RECARGAR VENTANA
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulo = negocio.listar();
+                dgvArticulos.DataSource = listaArticulo;
+                ajusteColumnas();
+                cargarImagen(listaArticulo[0].ListaImagenes[0]);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        
+        //RECARGAR IMAGEN
+
+        private void cargarImagen(Imagen imagen)
+        {
+            try
+            {
+                pbxImagen.Load(imagen.Url);
+            }
+            catch (Exception ex)
+            {
+                pbxImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
+            }
+        }
+
+        //AJUSTE COLUMNAS
+        private void ajusteColumnas()
+        {
+            //OCULTAR COLUMNAS
+            dgvArticulos.Columns["IndiceImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+            //AJUSTAR TAMAÑOS
+            dgvArticulos.Columns["Codigo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["marca_"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["categoria_"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvArticulos.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //JUSTIFICAR CONTENIDO
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //AJUSTE FORMATOS
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
+        }
+
+        private void emprolijarDgv()
+        {
+            dgvArticulos.Columns["IndiceImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
     }
 }

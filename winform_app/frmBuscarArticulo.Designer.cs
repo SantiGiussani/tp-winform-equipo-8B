@@ -238,6 +238,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "frmBuscarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Búsqueda Avanzada";
             this.Load += new System.EventHandler(this.frmBuscarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbImagen)).EndInit();

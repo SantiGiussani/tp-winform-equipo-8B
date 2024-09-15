@@ -91,6 +91,7 @@ namespace winform_app
 
             frmAdministrarArticulo ventana = new frmAdministrarArticulo();
             ventana.MdiParent = this;
+            ventana.WindowState = FormWindowState.Maximized;
             ventana.Show();
         }
 
@@ -112,11 +113,6 @@ namespace winform_app
             frmAdminCategorias listaCategoria = new frmAdminCategorias();
 
             listaCategoria.ShowDialog();
-        }
-
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
