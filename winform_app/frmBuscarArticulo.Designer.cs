@@ -36,8 +36,8 @@
             this.btnImagenIzq = new System.Windows.Forms.Button();
             this.lblCantImagen = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.lblCateegoria = new System.Windows.Forms.Label();
+            this.lblCampo = new System.Windows.Forms.Label();
+            this.lblCriterio = new System.Windows.Forms.Label();
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -52,19 +52,20 @@
             this.dgvBuscarArt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvBuscarArt.BackgroundColor = System.Drawing.Color.AntiqueWhite;
             this.dgvBuscarArt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBuscarArt.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvBuscarArt.Location = new System.Drawing.Point(9, 37);
+            this.dgvBuscarArt.Location = new System.Drawing.Point(9, 39);
             this.dgvBuscarArt.Name = "dgvBuscarArt";
             this.dgvBuscarArt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBuscarArt.Size = new System.Drawing.Size(792, 336);
+            this.dgvBuscarArt.Size = new System.Drawing.Size(662, 284);
             this.dgvBuscarArt.TabIndex = 0;
             this.dgvBuscarArt.CurrentCellChanged += new System.EventHandler(this.dgvBuscarArt_CurrentCellChanged);
             // 
             // PbImagen
             // 
             this.PbImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PbImagen.Location = new System.Drawing.Point(807, 37);
+            this.PbImagen.Location = new System.Drawing.Point(677, 39);
             this.PbImagen.Name = "PbImagen";
             this.PbImagen.Size = new System.Drawing.Size(212, 200);
             this.PbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -73,19 +74,22 @@
             // 
             // lblFiltro
             // 
-            this.lblFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.BackColor = System.Drawing.Color.Gray;
-            this.lblFiltro.Location = new System.Drawing.Point(12, 15);
+            this.lblFiltro.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblFiltro.Location = new System.Drawing.Point(14, 333);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(99, 13);
+            this.lblFiltro.Size = new System.Drawing.Size(69, 13);
             this.lblFiltro.TabIndex = 2;
-            this.lblFiltro.Text = "Ingresar Busqueda:";
+            this.lblFiltro.Text = "Filtro Rápido:";
             // 
             // txtBoxFiltro
             // 
-            this.txtBoxFiltro.Location = new System.Drawing.Point(117, 12);
+            this.txtBoxFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxFiltro.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.txtBoxFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxFiltro.Location = new System.Drawing.Point(89, 330);
             this.txtBoxFiltro.Name = "txtBoxFiltro";
             this.txtBoxFiltro.Size = new System.Drawing.Size(301, 20);
             this.txtBoxFiltro.TabIndex = 3;
@@ -94,33 +98,37 @@
             // btnImagenDer
             // 
             this.btnImagenDer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImagenDer.Location = new System.Drawing.Point(952, 243);
+            this.btnImagenDer.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnImagenDer.Enabled = false;
+            this.btnImagenDer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImagenDer.Location = new System.Drawing.Point(822, 245);
             this.btnImagenDer.Name = "btnImagenDer";
             this.btnImagenDer.Size = new System.Drawing.Size(67, 30);
             this.btnImagenDer.TabIndex = 4;
             this.btnImagenDer.Text = ">";
-            this.btnImagenDer.UseVisualStyleBackColor = true;
-            this.btnImagenDer.Visible = false;
+            this.btnImagenDer.UseVisualStyleBackColor = false;
             this.btnImagenDer.Click += new System.EventHandler(this.btnImagenDer_Click);
             // 
             // btnImagenIzq
             // 
             this.btnImagenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImagenIzq.Location = new System.Drawing.Point(807, 243);
+            this.btnImagenIzq.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnImagenIzq.Enabled = false;
+            this.btnImagenIzq.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImagenIzq.Location = new System.Drawing.Point(677, 245);
             this.btnImagenIzq.Name = "btnImagenIzq";
             this.btnImagenIzq.Size = new System.Drawing.Size(68, 30);
             this.btnImagenIzq.TabIndex = 5;
             this.btnImagenIzq.Text = "<";
-            this.btnImagenIzq.UseVisualStyleBackColor = true;
-            this.btnImagenIzq.Visible = false;
+            this.btnImagenIzq.UseVisualStyleBackColor = false;
             this.btnImagenIzq.Click += new System.EventHandler(this.btnImagenIzq_Click);
             // 
             // lblCantImagen
             // 
             this.lblCantImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCantImagen.AutoSize = true;
-            this.lblCantImagen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCantImagen.Location = new System.Drawing.Point(913, 260);
+            this.lblCantImagen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCantImagen.Location = new System.Drawing.Point(785, 254);
             this.lblCantImagen.Name = "lblCantImagen";
             this.lblCantImagen.Size = new System.Drawing.Size(0, 13);
             this.lblCantImagen.TabIndex = 6;
@@ -129,7 +137,7 @@
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalir.Location = new System.Drawing.Point(944, 456);
+            this.btnSalir.Location = new System.Drawing.Point(814, 327);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 7;
@@ -137,51 +145,51 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // lblMarca
+            // lblCampo
             // 
-            this.lblMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.BackColor = System.Drawing.Color.Gray;
-            this.lblMarca.Location = new System.Drawing.Point(12, 408);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(43, 13);
-            this.lblMarca.TabIndex = 8;
-            this.lblMarca.Text = "Campo:";
+            this.lblCampo.AutoSize = true;
+            this.lblCampo.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblCampo.Location = new System.Drawing.Point(12, 15);
+            this.lblCampo.Name = "lblCampo";
+            this.lblCampo.Size = new System.Drawing.Size(43, 13);
+            this.lblCampo.TabIndex = 8;
+            this.lblCampo.Text = "Campo:";
             // 
-            // lblCateegoria
+            // lblCriterio
             // 
-            this.lblCateegoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCateegoria.AutoSize = true;
-            this.lblCateegoria.BackColor = System.Drawing.Color.Gray;
-            this.lblCateegoria.Location = new System.Drawing.Point(13, 462);
-            this.lblCateegoria.Name = "lblCateegoria";
-            this.lblCateegoria.Size = new System.Drawing.Size(42, 13);
-            this.lblCateegoria.TabIndex = 9;
-            this.lblCateegoria.Text = "Criterio:";
+            this.lblCriterio.AutoSize = true;
+            this.lblCriterio.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblCriterio.Location = new System.Drawing.Point(193, 15);
+            this.lblCriterio.Name = "lblCriterio";
+            this.lblCriterio.Size = new System.Drawing.Size(42, 13);
+            this.lblCriterio.TabIndex = 9;
+            this.lblCriterio.Text = "Criterio:";
             // 
             // lblFiltroAvanzado
             // 
-            this.lblFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFiltroAvanzado.AutoSize = true;
-            this.lblFiltroAvanzado.BackColor = System.Drawing.Color.Gray;
-            this.lblFiltroAvanzado.Location = new System.Drawing.Point(229, 409);
+            this.lblFiltroAvanzado.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblFiltroAvanzado.Location = new System.Drawing.Point(377, 16);
             this.lblFiltroAvanzado.Name = "lblFiltroAvanzado";
-            this.lblFiltroAvanzado.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltroAvanzado.Size = new System.Drawing.Size(58, 13);
             this.lblFiltroAvanzado.TabIndex = 10;
-            this.lblFiltroAvanzado.Text = "Filtro:";
+            this.lblFiltroAvanzado.Text = "Búsqueda:";
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtPrecio.Location = new System.Drawing.Point(267, 406);
+            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecio.BackColor = System.Drawing.Color.White;
+            this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecio.Location = new System.Drawing.Point(441, 13);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(176, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(230, 20);
             this.txtPrecio.TabIndex = 13;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBuscar.Location = new System.Drawing.Point(461, 405);
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(677, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(82, 21);
             this.btnBuscar.TabIndex = 14;
@@ -191,36 +199,34 @@
             // 
             // cbCriterio
             // 
-            this.cbCriterio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCriterio.FormattingEnabled = true;
-            this.cbCriterio.Location = new System.Drawing.Point(86, 458);
+            this.cbCriterio.Location = new System.Drawing.Point(241, 12);
             this.cbCriterio.Name = "cbCriterio";
-            this.cbCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cbCriterio.Size = new System.Drawing.Size(100, 21);
             this.cbCriterio.TabIndex = 15;
             // 
             // cbCampo
             // 
-            this.cbCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCampo.FormattingEnabled = true;
-            this.cbCampo.Location = new System.Drawing.Point(86, 405);
+            this.cbCampo.Location = new System.Drawing.Point(62, 12);
             this.cbCampo.Name = "cbCampo";
-            this.cbCampo.Size = new System.Drawing.Size(121, 21);
+            this.cbCampo.Size = new System.Drawing.Size(100, 21);
             this.cbCampo.TabIndex = 16;
             this.cbCampo.SelectedIndexChanged += new System.EventHandler(this.cbCampo_SelectedIndexChanged);
             // 
             // frmBuscarArticulo
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1034, 507);
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.ClientSize = new System.Drawing.Size(904, 361);
             this.Controls.Add(this.cbCampo);
             this.Controls.Add(this.cbCriterio);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblFiltroAvanzado);
-            this.Controls.Add(this.lblCateegoria);
-            this.Controls.Add(this.lblMarca);
+            this.Controls.Add(this.lblCriterio);
+            this.Controls.Add(this.lblCampo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblCantImagen);
             this.Controls.Add(this.btnImagenIzq);
@@ -256,8 +262,8 @@
         private System.Windows.Forms.Button btnImagenIzq;
         private System.Windows.Forms.Label lblCantImagen;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.Label lblCateegoria;
+        private System.Windows.Forms.Label lblCampo;
+        private System.Windows.Forms.Label lblCriterio;
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnBuscar;

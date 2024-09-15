@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
 using negocio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace winform_app
 {
@@ -20,73 +21,38 @@ namespace winform_app
             InitializeComponent();
         }
 
-        private void cargarImagen(string imagen)
+        //CARGA FORMULARIO
+        private void frmBuscarArticulo_Load(object sender, EventArgs e)
         {
-            try
-            {
-                PbImagen.Load(imagen);
-            }
-            catch (Exception)
-            {
-                PbImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
-            }
+            cbCampo.Items.Add("Marca");
+            cbCampo.Items.Add("Categoria");
+            cbCampo.Items.Add("Precio");
         }
 
-        private void txtBoxFiltro_TextChanged(object sender, EventArgs e)
-        {
-            List<Articulo> ListaFiltrada;
-            ArticuloNegocio Negocio = new ArticuloNegocio();
-            ListaFiltrada = Negocio.listar();
-            string text = txtBoxFiltro.Text;
-
-            if (text != "")
-            {
-                ListaFiltrada = ListaFiltrada.FindAll(x => x.Nombre.ToLower().Contains(text.ToLower()) || x.Descripcion.ToLower().Contains(text.ToLower()) || x.Codigo.ToLower().Contains(text.ToLower()));
-            }
-
-
-            dgvBuscarArt.DataSource = null;
-            dgvBuscarArt.DataSource = ListaFiltrada;
-            dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
-            dgvBuscarArt.Columns["Id"].Visible = false;
-        }
-
+        //CAMBIO EN LA SELECCION DEL DGV
         private void dgvBuscarArt_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgvBuscarArt.CurrentRow != null)
             {
                 PbImagen.Visible = true;
-                btnImagenDer.Visible = true;
-                btnImagenIzq.Visible = true;
+                btnImagenIzq.Enabled = true;
+                btnImagenDer.Enabled = true;
                 lblCantImagen.Visible = true;
                 Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                cargarImagen(seleccionado.ListaImagenes[0].Url);
                 configEtiquetaImg(seleccionado);
+                cargarImagen(seleccionado.ListaImagenes[0].Url);
             }
             else
             {
                 PbImagen.Visible = false;
-                btnImagenDer.Visible = false;
-                btnImagenIzq.Visible = false;
+                btnImagenIzq.Enabled = false;
+                btnImagenDer.Enabled = false;
                 lblCantImagen.Visible = false;
             }
         }
 
-        private void configEtiquetaImg(Articulo seleccionado)
-        {
-            seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
-            int cantImagenes = seleccionado.ListaImagenes.Count;
-            int imgActual = seleccionado.IndiceImagen + 1;
-            lblCantImagen.Text = imgActual + "/" + cantImagenes;
-
-            //POSICIÓN ETIQUETA
-            int btnIzquierdo = btnImagenIzq.Location.X;
-            int btnDerecho = btnImagenDer.Location.X + btnImagenDer.Width;
-            int posicionCentrada = (btnDerecho + btnIzquierdo) / 2;
-            lblCantImagen.Location = new Point(posicionCentrada - (lblCantImagen.Width / 2), lblCantImagen.Location.Y);
-        }
-
+        //BOTONES
         private void btnImagenIzq_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
@@ -99,14 +65,14 @@ namespace winform_app
                 seleccionado.IndiceImagen--;
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
-            cargarImagen(imagen);
             configEtiquetaImg(seleccionado);
+            cargarImagen(imagen);
         }
 
         private void btnImagenDer_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
-
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
             int maximo = seleccionado.ListaImagenes.Count;
 
             if (seleccionado.IndiceImagen == maximo - 1)
@@ -115,51 +81,55 @@ namespace winform_app
                 seleccionado.IndiceImagen++;
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
-            cargarImagen(imagen);
             configEtiquetaImg(seleccionado);
+            cargarImagen(imagen);
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        //FILTRO RAPIDO
+        private void txtBoxFiltro_TextChanged(object sender, EventArgs e)
         {
-            Close();
+            List<Articulo> ListaFiltrada;
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            ListaFiltrada = Negocio.listar();
+            string text = txtBoxFiltro.Text;
+
+            if (text != "")
+            {
+                ListaFiltrada = ListaFiltrada.FindAll(x => x.Nombre.ToLower().Contains(text.ToLower()) || x.Descripcion.ToLower().Contains(text.ToLower()) || x.Codigo.ToLower().Contains(text.ToLower()));
+            }
+
+            dgvBuscarArt.DataSource = null;
+            dgvBuscarArt.DataSource = ListaFiltrada;
+            ajusteColumnas();
+            dgvBuscarArt.CurrentCell = dgvBuscarArt.Rows[0].Cells[1];
         }
 
-        private void frmBuscarArticulo_Load(object sender, EventArgs e)
-        {
-            cbCampo.Items.Add("Marca");
-            cbCampo.Items.Add("Categoria");
-            cbCampo.Items.Add("Precio");
-        }
-
+        //BUSQUEDA AVANZADA
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             if (cbCampo.SelectedItem == null || cbCriterio.SelectedItem == null)
             {
-                MessageBox.Show("por favor completar las casillas");
+                MessageBox.Show("Por favor, completar las casillas para realizar la búsqueda");
                 return;
             }
             if (cbCampo.SelectedItem.ToString() == "Precio" && txtPrecio.Text == "")
             {
-                MessageBox.Show("Por favor cargar un precio");
+                MessageBox.Show("Por favor, ingresar un precio");
                 return;
             }
             try
-            {                
-             string campo = cbCampo.SelectedItem.ToString();
-             string criterio = cbCriterio.SelectedItem.ToString();             
-             string Buscar = txtPrecio.Text;             
-             dgvBuscarArt.DataSource = negocio.Listar(campo, criterio, Buscar);
-             dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
-             dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
-             dgvBuscarArt.Columns["Id"].Visible = false;
-             dgvBuscarArt.Columns["Id"].Visible = false;
-                
-
+            {
+                string campo = cbCampo.SelectedItem.ToString();
+                string criterio = cbCriterio.SelectedItem.ToString();
+                string Buscar = txtPrecio.Text;
+                dgvBuscarArt.DataSource = negocio.Listar(campo, criterio, Buscar);
+                dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
+                dgvBuscarArt.Columns["Id"].Visible = false;
             }
             catch (Exception)
             {
-                MessageBox.Show("Por favor cargar un precio");
+                MessageBox.Show("Por favor, cargar un precio");
             }
         }
 
@@ -176,6 +146,57 @@ namespace winform_app
                 cbCriterio.Items.Add("Contiene");
                 cbCriterio.Items.Add("Empieza con");
             }
+        }
+
+        //SALIR
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //FUNCIONES
+
+        //RECARGAR IMAGEN
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                PbImagen.Load(imagen);
+            }
+            catch (Exception)
+            {
+                PbImagen.Load("https://mcfil.net.ar/wp-content/uploads/2021/04/no-dispnible.jpg");
+            }
+        }
+
+        //AJUSTES PERSONALIZADOS
+        private void ajusteColumnas()
+        {
+            //OCULTAR COLUMNAS
+            dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
+            dgvBuscarArt.Columns["Id"].Visible = false;
+            //AJUSTAR TAMAÑOS
+            dgvBuscarArt.Columns["Codigo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvBuscarArt.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvBuscarArt.Columns["marca_"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvBuscarArt.Columns["categoria_"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvBuscarArt.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //JUSTIFICAR CONTENIDO
+            dgvBuscarArt.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+        }
+
+        private void configEtiquetaImg(Articulo seleccionado)
+        {
+            seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
+            int cantImagenes = seleccionado.ListaImagenes.Count;
+            int imgActual = seleccionado.IndiceImagen + 1;
+            lblCantImagen.Text = imgActual + "/" + cantImagenes;
+
+            //POSICIÓN ETIQUETA
+            int btnIzquierdo = btnImagenIzq.Location.X;
+            int btnDerecho = btnImagenDer.Location.X + btnImagenDer.Width;
+            int posicionCentrada = (btnDerecho + btnIzquierdo) / 2;
+            lblCantImagen.Location = new Point(posicionCentrada - (lblCantImagen.Width / 2), lblCantImagen.Location.Y);
         }
     }
 }

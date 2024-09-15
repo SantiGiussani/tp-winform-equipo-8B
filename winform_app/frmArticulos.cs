@@ -21,6 +21,7 @@ namespace winform_app
             InitializeComponent();
         }
 
+        //CARGA FORMULARIO
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             cargar();
@@ -28,6 +29,7 @@ namespace winform_app
             frmArticulos = this;
         }
 
+        //CAMBIO EN LA SELECCION DEL DGV
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvArticulos.CurrentRow != null)
@@ -39,8 +41,7 @@ namespace winform_app
             }   
         }
 
-        
-
+        //BOTONES
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -73,12 +74,6 @@ namespace winform_app
             cargarImagen(imagen);
         }
 
-        //SALIR
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         //FILTRO RAPIDO
         private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
         {
@@ -95,6 +90,13 @@ namespace winform_app
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = ListaFiltrada;
             ajusteColumnas();
+            dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+        }
+
+        //SALIR
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         //FUNCIONES
@@ -131,7 +133,7 @@ namespace winform_app
             }
         }
 
-        //AJUSTES PERSONALIZADOS PARA DATA GRID VIEW
+        //AJUSTES PERSONALIZADOS
         private void ajusteColumnas()
         {
             //OCULTAR COLUMNAS

@@ -51,7 +51,7 @@
             // txtFiltroRapido
             // 
             resources.ApplyResources(this.txtFiltroRapido, "txtFiltroRapido");
-            this.txtFiltroRapido.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFiltroRapido.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtFiltroRapido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFiltroRapido.Name = "txtFiltroRapido";
             this.txtFiltroRapido.TextChanged += new System.EventHandler(this.txtFiltroRapido_TextChanged);
@@ -60,13 +60,12 @@
             // 
             resources.ApplyResources(this.lblFiltroRapido, "lblFiltroRapido");
             this.lblFiltroRapido.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblFiltroRapido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFiltroRapido.Name = "lblFiltroRapido";
             // 
             // btnAnterior
             // 
             resources.ApplyResources(this.btnAnterior, "btnAnterior");
-            this.btnAnterior.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAnterior.BackColor = System.Drawing.Color.PapayaWhip;
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
@@ -74,7 +73,7 @@
             // btnSiguiente
             // 
             resources.ApplyResources(this.btnSiguiente, "btnSiguiente");
-            this.btnSiguiente.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSiguiente.BackColor = System.Drawing.Color.PapayaWhip;
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
@@ -90,7 +89,7 @@
             this.dgvArticulos.AllowUserToOrderColumns = true;
             this.dgvArticulos.AllowUserToResizeRows = false;
             resources.ApplyResources(this.dgvArticulos, "dgvArticulos");
-            this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvArticulos.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.MultiSelect = false;
@@ -110,7 +109,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);
