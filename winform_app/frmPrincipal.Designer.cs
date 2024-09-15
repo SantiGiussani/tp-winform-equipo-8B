@@ -49,7 +49,7 @@
             this.AdminFamiliasToolStrip});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(1402, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(904, 24);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -115,16 +115,14 @@
             // 
             // frmPrincipal
             // 
-            this.ClientSize = new System.Drawing.Size(1402, 592);
+            this.ClientSize = new System.Drawing.Size(904, 461);
             this.Controls.Add(this.menuStrip3);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip3;
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1418, 631);
-            this.MinimumSize = new System.Drawing.Size(1418, 631);
+            this.MinimumSize = new System.Drawing.Size(920, 500);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ADMINISTRADOR DE ARTICULOS";
+            this.Text = "Administrador de Artículos";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();

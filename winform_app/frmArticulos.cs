@@ -34,8 +34,8 @@ namespace winform_app
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                cargarImagen(seleccionado.ListaImagenes[0].Url);
                 configEtiquetaImg(seleccionado);
+                cargarImagen(seleccionado.ListaImagenes[0].Url);
             }   
         }
 
@@ -53,8 +53,8 @@ namespace winform_app
                 seleccionado.IndiceImagen--;
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
-            cargarImagen(imagen);
             configEtiquetaImg(seleccionado);
+            cargarImagen(imagen);
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -69,8 +69,8 @@ namespace winform_app
                 seleccionado.IndiceImagen++;
 
             string imagen = seleccionado.ListaImagenes[seleccionado.IndiceImagen].Url;
-            cargarImagen(imagen);
             configEtiquetaImg(seleccionado);
+            cargarImagen(imagen);
         }
 
         //SALIR
@@ -107,8 +107,8 @@ namespace winform_app
             {
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
-                cargarImagen(listaArticulos[0].ListaImagenes[0].Url);
                 configEtiquetaImg(listaArticulos[0]);
+                cargarImagen(listaArticulos[0].ListaImagenes[0].Url);
                 ajusteColumnas();
 
             }

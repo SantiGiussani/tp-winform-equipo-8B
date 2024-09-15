@@ -117,5 +117,10 @@ namespace winform_app
             cargarImagen(imagen);
             configEtiquetaImg(seleccionado);
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

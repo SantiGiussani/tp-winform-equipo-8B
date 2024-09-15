@@ -51,6 +51,7 @@
             // txtFiltroRapido
             // 
             resources.ApplyResources(this.txtFiltroRapido, "txtFiltroRapido");
+            this.txtFiltroRapido.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtFiltroRapido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFiltroRapido.Name = "txtFiltroRapido";
             this.txtFiltroRapido.TextChanged += new System.EventHandler(this.txtFiltroRapido_TextChanged);
@@ -58,21 +59,24 @@
             // lblFiltroRapido
             // 
             resources.ApplyResources(this.lblFiltroRapido, "lblFiltroRapido");
-            this.lblFiltroRapido.BackColor = System.Drawing.Color.White;
+            this.lblFiltroRapido.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblFiltroRapido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFiltroRapido.Name = "lblFiltroRapido";
             // 
             // btnAnterior
             // 
             resources.ApplyResources(this.btnAnterior, "btnAnterior");
+            this.btnAnterior.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
             resources.ApplyResources(this.btnSiguiente, "btnSiguiente");
+            this.btnSiguiente.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // pbxImagen
@@ -99,7 +103,7 @@
             // lblImagen
             // 
             resources.ApplyResources(this.lblImagen, "lblImagen");
-            this.lblImagen.BackColor = System.Drawing.Color.White;
+            this.lblImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblImagen.Name = "lblImagen";
             // 
             // frmArticulos
@@ -115,7 +119,6 @@
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnSalir);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmArticulos";
             this.TransparencyKey = System.Drawing.Color.DarkSlateGray;
             this.Load += new System.EventHandler(this.frmArticulos_Load);

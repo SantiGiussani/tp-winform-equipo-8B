@@ -33,6 +33,7 @@ namespace winform_app
 
             frmArticulos ventana = new frmArticulos();
             ventana.MdiParent = this;
+            ventana.WindowState = FormWindowState.Maximized;
             ventana.Show();
         }
 
@@ -51,6 +52,7 @@ namespace winform_app
 
             frmBuscarArticulo ventana = new frmBuscarArticulo();
             ventana.MdiParent = this;
+            ventana.WindowState = FormWindowState.Maximized;
             ventana.Show();
         }
 
