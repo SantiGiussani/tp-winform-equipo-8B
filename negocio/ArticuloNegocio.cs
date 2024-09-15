@@ -69,6 +69,94 @@ namespace negocio
             
         }
 
+        public List<Articulo> Listar(string campo, string criterio, string buscar)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "Select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.Precio from ARTICULOS A Left Join CATEGORIAS C on A.IdCategoria = C.Id Left Join MARCAS M on A.IdMarca = M.Id";
+
+                if(campo == "Precio")
+                {
+                    if(criterio == "Menor a")
+                    {
+                        consulta += " where A.Precio < "+ buscar +" ";
+                    }
+                    else
+                    {
+                        consulta += " where A.Precio > " + buscar + " ";
+                    }
+                }
+                if(campo == "Marca")
+                {
+                    if(criterio == "Contiene")
+                    {
+                        consulta += " where M.Descripcion like '%" + buscar + "%'";
+                    }
+                    else
+                    {
+                        consulta += " where M.Descripcion like '" + buscar + "%'";
+                    }
+                }
+                if(campo == "Categoria")
+                {
+                    if (criterio == "Contiene")
+                    {
+                        consulta += " where C.Descripcion like '%" + buscar + "%'";
+                    }
+                    else
+                    {
+                        consulta += " where C.Descripcion like '" + buscar + "%'";
+                    }
+                }
+
+                accesoDatos.setearConsulta(consulta);
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)accesoDatos.Lector["Id"];
+                    aux.Codigo = (string)accesoDatos.Lector["Codigo"];
+                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    aux.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+                    aux.Marca_ = new Marca();
+                    if (!(accesoDatos.Lector["Marca"] is DBNull))
+                    {
+                        aux.Marca_.Descripcion = (string)accesoDatos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        aux.Marca_.Descripcion = "";
+                    }
+                    aux.Categoria_ = new Categoria();
+                    if (!(accesoDatos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.Categoria_.Descripcion = (string)accesoDatos.Lector["Categoria"];
+                    }
+                    else
+                    {
+                        aux.Categoria_.Descripcion = "";
+                    }
+                    aux.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    ImagenNegocio imagenNegocio = new ImagenNegocio();
+                    aux.ListaImagenes = imagenNegocio.listar(aux.Id);
+
+                    lista.Add(aux);
+                }
+
+
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void agregar(Articulo art)
         {
             AccesoDatos datos = new AccesoDatos();

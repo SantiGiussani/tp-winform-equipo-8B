@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,6 +122,60 @@ namespace winform_app
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmBuscarArticulo_Load(object sender, EventArgs e)
+        {
+            cbCampo.Items.Add("Marca");
+            cbCampo.Items.Add("Categoria");
+            cbCampo.Items.Add("Precio");
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            if (cbCampo.SelectedItem == null || cbCriterio.SelectedItem == null)
+            {
+                MessageBox.Show("por favor completar las casillas");
+                return;
+            }
+            if (cbCampo.SelectedItem.ToString() == "Precio" && txtPrecio.Text == "")
+            {
+                MessageBox.Show("Por favor cargar un precio");
+                return;
+            }
+            try
+            {                
+             string campo = cbCampo.SelectedItem.ToString();
+             string criterio = cbCriterio.SelectedItem.ToString();             
+             string Buscar = txtPrecio.Text;             
+             dgvBuscarArt.DataSource = negocio.Listar(campo, criterio, Buscar);
+             dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
+             dgvBuscarArt.Columns["IndiceImagen"].Visible = false;
+             dgvBuscarArt.Columns["Id"].Visible = false;
+             dgvBuscarArt.Columns["Id"].Visible = false;
+                
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Por favor cargar un precio");
+            }
+        }
+
+        private void cbCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbCriterio.Items.Clear();
+            if (cbCampo.SelectedItem.ToString() == "Precio")
+            {
+                cbCriterio.Items.Add("Mayor a");
+                cbCriterio.Items.Add("Menor a");
+            }
+            else
+            {
+                cbCriterio.Items.Add("Contiene");
+                cbCriterio.Items.Add("Empieza con");
+            }
         }
     }
 }
