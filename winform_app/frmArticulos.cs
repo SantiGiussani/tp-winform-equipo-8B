@@ -171,5 +171,27 @@ namespace winform_app
             int posicionCentrada = (btnDerecho + btnIzquierdo) / 2;
             lblImagen.Location = new Point(posicionCentrada - (lblImagen.Width / 2), lblImagen.Location.Y);
         }
+
+        private void dgvArticulos_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                pbxImagen.Visible = true;
+                btnAnterior.Enabled = true;
+                btnSiguiente.Enabled = true;
+                lblImagen.Visible = true;
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                configEtiquetaImg(seleccionado);
+                cargarImagen(seleccionado.ListaImagenes[0].Url);
+            }
+            else
+            {
+                pbxImagen.Visible = false;
+                btnAnterior.Enabled = false;
+                btnSiguiente.Enabled = false;
+                lblImagen.Visible = false;
+            }
+        }
     }
 }

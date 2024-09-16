@@ -109,7 +109,6 @@ namespace winform_app
             dgvBuscarArt.DataSource = null;
             dgvBuscarArt.DataSource = ListaFiltrada;
             ajusteColumnas();
-            dgvBuscarArt.CurrentCell = dgvBuscarArt.Rows[0].Cells[1];
         }
 
         //BUSQUEDA AVANZADA
