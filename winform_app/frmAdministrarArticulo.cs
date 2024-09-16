@@ -58,6 +58,10 @@ namespace winform_app
             ArticuloNegocio negocio = new ArticuloNegocio();
             Articulo seleccionado = new Articulo();
 
+            if (dgvArticulos.CurrentRow == null && dgvArticulos.Rows.Count > 0)
+            {
+                dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+            }
             if (dgvArticulos.CurrentRow != null)
             {
                 seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -79,6 +83,10 @@ namespace winform_app
             ArticuloNegocio negocio = new ArticuloNegocio();
             Articulo seleccionado;
 
+            if (dgvArticulos.CurrentRow == null && dgvArticulos.Rows.Count > 0)
+            {
+                dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+            }
             seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             List<Imagen> lista = new List<Imagen>();
             lista = seleccionado.ListaImagenes;
@@ -146,7 +154,6 @@ namespace winform_app
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = ListaFiltrada;
             ajusteColumnas();
-            dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
         }
 
         //FUNCIONES

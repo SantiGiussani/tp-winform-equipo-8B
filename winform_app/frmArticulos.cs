@@ -44,6 +44,10 @@ namespace winform_app
         //BOTONES
         private void btnAnterior_Click(object sender, EventArgs e)
         {
+            if (dgvArticulos.CurrentRow == null && dgvArticulos.Rows.Count > 0)
+            {
+                dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+            }
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
             int maximo = seleccionado.ListaImagenes.Count;
@@ -60,6 +64,10 @@ namespace winform_app
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            if (dgvArticulos.CurrentRow == null && dgvArticulos.Rows.Count > 0)
+            {
+                dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+            }
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
             int maximo = seleccionado.ListaImagenes.Count;

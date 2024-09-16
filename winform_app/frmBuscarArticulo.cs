@@ -55,6 +55,10 @@ namespace winform_app
         //BOTONES
         private void btnImagenIzq_Click(object sender, EventArgs e)
         {
+            if (dgvBuscarArt.CurrentRow == null && dgvBuscarArt.Rows.Count > 0)
+            {
+                dgvBuscarArt.CurrentCell = dgvBuscarArt.Rows[0].Cells[1];
+            }
             Articulo seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
 
             int maximo = seleccionado.ListaImagenes.Count;
@@ -71,6 +75,10 @@ namespace winform_app
 
         private void btnImagenDer_Click(object sender, EventArgs e)
         {
+            if (dgvBuscarArt.CurrentRow == null && dgvBuscarArt.Rows.Count > 0)
+            {
+                dgvBuscarArt.CurrentCell = dgvBuscarArt.Rows[0].Cells[1];
+            }
             Articulo seleccionado = new Articulo();
             seleccionado = (Articulo)dgvBuscarArt.CurrentRow.DataBoundItem;
             int maximo = seleccionado.ListaImagenes.Count;
