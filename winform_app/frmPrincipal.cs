@@ -61,18 +61,7 @@ namespace winform_app
         //AGREGAR ARTICULO
         private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var item in Application.OpenForms)
-            {
-                if (item.GetType() == typeof(frmAgregarArticulo))
-                {
-                    frmAgregarArticulo frmAgregarArticulo = ( frmAgregarArticulo)item;
-                    frmAgregarArticulo.Close();
-                    return;
-                }
-            }
-
             frmAgregarArticulo ventana = new frmAgregarArticulo();
-            ventana.MdiParent = this;
             ventana.Show();
         }
 
