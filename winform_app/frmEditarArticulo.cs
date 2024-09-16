@@ -138,10 +138,30 @@ namespace winform_app
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            negocio.modificar(articuloAux);
-            negocio.actualizarImagenes(articuloAux);
-            MessageBox.Show("Articulo modificado exitosamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
+
+            try
+            {
+                // cargar
+                articuloAux.Codigo = tbCodArt.Text;
+                articuloAux.Nombre = tbNombre.Text;
+                articuloAux.Descripcion = tbDescripcion.Text;
+                articuloAux.Marca_ = (Marca)cbMarca.SelectedItem;
+                articuloAux.Categoria_ = (Categoria)cbCategoria.SelectedItem;
+                articuloAux.Precio = decimal.Parse(tbPrecio.Text);
+                // Modificar en DB
+                negocio.modificar(articuloAux);
+                negocio.actualizarImagenes(articuloAux);
+                MessageBox.Show("Articulo modificado exitosamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                Close();
+            }
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

@@ -29,16 +29,10 @@ namespace winform_app
             ArticuloNegocio negocio = new ArticuloNegocio();
             ImagenNegocio imagenNegocio = new ImagenNegocio();
 
-
-
-
             if (!negocio.existeCodigo(tbCodArt.Text))
             {
-
                 if (!string.IsNullOrWhiteSpace(tbURLImagen.Text))
                 {
-
-
                     try
                     {
                         // cargar
@@ -77,9 +71,6 @@ namespace winform_app
                 {
                     MessageBox.Show("Todo articulo debe poseer una imagen,por favor ingrese una URL valida.");
                 }
-
-
-
             }
             else
             {
