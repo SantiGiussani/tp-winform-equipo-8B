@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,16 +17,33 @@ namespace winform_app
 {
     public partial class frmAgregarArticulo : Form
     {
-        
+        private Articulo articuloAux = new Articulo();
         public frmAgregarArticulo()
         {
             InitializeComponent();
         }
 
 
+
+
+
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbImagenArt.Load(imagen);
+            }
+            catch
+            {
+                pbImagenArt.Load("https://www.came-educativa.com.ar/wp-content/uploads/2022/03/placeholder-3.png");
+            }
+        }
+
+
+
         private void btAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
             ArticuloNegocio negocio = new ArticuloNegocio();
             ImagenNegocio imagenNegocio = new ImagenNegocio();
 
@@ -35,22 +53,22 @@ namespace winform_app
                 {
                     try
                     {
-                        // cargar
-                        art.Precio = decimal.Parse(tbPrecio.Text);
-                        art.Nombre = tbNombre.Text;
-                        art.Descripcion = tbDescripcion.Text;
-                        art.Codigo = tbCodArt.Text;
-                        art.Marca_ = (Marca)cbMarca.SelectedItem;
-                        art.Categoria_ = (Categoria)cbCategoria.SelectedItem;
+                        // cargar datos en articuloAux
+                        articuloAux.Precio = decimal.Parse(tbPrecio.Text);
+                        articuloAux.Nombre = tbNombre.Text;
+                        articuloAux.Descripcion = tbDescripcion.Text;
+                        articuloAux.Codigo = tbCodArt.Text;
+                        articuloAux.Marca_ = (Marca)cbMarca.SelectedItem;
+                        articuloAux.Categoria_ = (Categoria)cbCategoria.SelectedItem;
 
                         // agregar a db
-                        negocio.agregar(art);
+                        negocio.agregar(articuloAux);
 
                         // obtener id del codigo
                         var nuevoArticulo = negocio.listar().FirstOrDefault();
                         if (nuevoArticulo != null)
                         {
-                            // Agregar imagen al art
+                            // Agregar imagen al articuloAux
                             Imagen imagen = new Imagen
                             {
                                 Id = nuevoArticulo.Id,
@@ -105,6 +123,11 @@ namespace winform_app
             { 
                 this.Close();
             }
+        }
+
+        private void tbURLImagen_TextChanged(object sender, EventArgs e)
+        {
+            cargarImagen(tbURLImagen.Text);
         }
     }
 }

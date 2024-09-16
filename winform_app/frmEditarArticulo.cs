@@ -172,5 +172,10 @@ namespace winform_app
                 this.Close();
             }
         }
+
+        private void tbAgregarImagen_TextChanged(object sender, EventArgs e)
+        {
+            cargarImagen(tbAgregarImagen.Text);
+        }
     }
 }

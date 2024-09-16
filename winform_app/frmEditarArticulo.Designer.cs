@@ -256,6 +256,7 @@
             this.tbAgregarImagen.Name = "tbAgregarImagen";
             this.tbAgregarImagen.Size = new System.Drawing.Size(307, 20);
             this.tbAgregarImagen.TabIndex = 72;
+            this.tbAgregarImagen.TextChanged += new System.EventHandler(this.tbAgregarImagen_TextChanged);
             // 
             // frmEditarArticulo
             // 

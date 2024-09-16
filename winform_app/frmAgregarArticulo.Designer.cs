@@ -105,6 +105,7 @@
             this.tbURLImagen.Name = "tbURLImagen";
             this.tbURLImagen.Size = new System.Drawing.Size(359, 20);
             this.tbURLImagen.TabIndex = 43;
+            this.tbURLImagen.TextChanged += new System.EventHandler(this.tbURLImagen_TextChanged);
             // 
             // tbDescripcion
             // 

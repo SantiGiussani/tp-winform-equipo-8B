@@ -90,7 +90,6 @@ namespace winform_app
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = ListaFiltrada;
             ajusteColumnas();
-            dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
         }
 
         //SALIR
