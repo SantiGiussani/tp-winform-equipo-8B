@@ -53,7 +53,7 @@ namespace winform_app
                 {
                     try
                     {
-                        // cargar datos en articuloAux
+                        // Cargar datos en articuloAux
                         articuloAux.Precio = decimal.Parse(tbPrecio.Text);
                         articuloAux.Nombre = tbNombre.Text;
                         articuloAux.Descripcion = tbDescripcion.Text;
@@ -61,23 +61,24 @@ namespace winform_app
                         articuloAux.Marca_ = (Marca)cbMarca.SelectedItem;
                         articuloAux.Categoria_ = (Categoria)cbCategoria.SelectedItem;
 
-                        // agregar a db
+                        // Agregar el artículo a la base de datos
                         negocio.agregar(articuloAux);
 
-                        // obtener id del codigo
-                        var nuevoArticulo = negocio.listar().FirstOrDefault();
+                        // Obtener el artículo recién insertado por el código
+                        Articulo nuevoArticulo = negocio.obtenerPorCodigo(articuloAux.Codigo);
+
                         if (nuevoArticulo != null)
                         {
-                            // Agregar imagen al articuloAux
+                            // Agregar la imagen al artículo recién agregado
                             Imagen imagen = new Imagen
                             {
-                                Id = nuevoArticulo.Id,
+                                Id = nuevoArticulo.Id, // ID del artículo recién agregado
                                 Url = tbURLImagen.Text // URL ingresada en el TextBox
                             };
                             imagenNegocio.agregarImagen(imagen);
                         }
 
-                        MessageBox.Show("Articulo agregado exitosamente.");
+                        MessageBox.Show("Artículo e imagen agregados exitosamente.");
                         Close();
                     }
                     catch (Exception ex)
@@ -87,12 +88,12 @@ namespace winform_app
                 }
                 else
                 {
-                    MessageBox.Show("Todo articulo debe poseer una imagen,por favor ingrese una URL valida.");
+                    MessageBox.Show("Todo artículo debe poseer una imagen, por favor ingrese una URL válida.");
                 }
             }
             else
             {
-                MessageBox.Show("Por favor ingresa un codigo diferente.");
+                MessageBox.Show("Por favor ingresa un código diferente.");
             }
         }
 

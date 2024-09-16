@@ -163,13 +163,15 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria)");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) " +
+                                     "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria)");
                 datos.setearParametro("@Codigo", art.Codigo);
                 datos.setearParametro("@Nombre", art.Nombre);
                 datos.setearParametro("@Descripcion", art.Descripcion);
                 datos.setearParametro("@Precio", art.Precio);
                 datos.setearParametro("@IdMarca", art.Marca_.Id);
                 datos.setearParametro("@IdCategoria", art.Categoria_.Id);
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -180,6 +182,51 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+
+
+
+
+
+
+
+
+        public Articulo obtenerPorCodigo(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Articulo articulo = null;
+
+            try
+            {
+                datos.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria FROM ARTICULOS WHERE Codigo = @Codigo");
+                datos.setearParametro("@Codigo", codigo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    articulo = new Articulo
+                    {
+                        Id = (int)datos.Lector["Id"],
+                        Codigo = (string)datos.Lector["Codigo"],
+                        Nombre = (string)datos.Lector["Nombre"],
+                        Descripcion = (string)datos.Lector["Descripcion"],
+                        Precio = (decimal)datos.Lector["Precio"],
+                        Marca_ = new Marca { Id = (int)datos.Lector["IdMarca"] },
+                        Categoria_ = new Categoria { Id = (int)datos.Lector["IdCategoria"] }
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return articulo;
         }
 
 
